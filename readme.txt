@@ -1,1 +1,1 @@
-Gestión de cliníca
+Gestión de cliníca práctica
