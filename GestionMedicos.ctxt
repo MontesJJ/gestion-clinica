@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=GestionMedicos
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ GestionMedicos\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=GestionMedicos()
+comment2.params=id\ name\ estudianteAsignado
+comment2.target=void\ addMedico(int,\ java.lang.String,\ Estudiante)
+comment3.params=
+comment3.target=void\ imprimirListaMedicos()
+numComments=4
