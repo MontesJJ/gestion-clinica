@@ -6,9 +6,12 @@ import java.util.Scanner; // Importamos la clase Scanner para leer la entrada de
 
 public class Main {
     
+    protected static BD baseDatos;
     private static Primero primero;
     
     public static void main(String[] args) {
+        
+        baseDatos = new BD();
         Scanner scanner = new Scanner(System.in); // Creamos un objeto Scanner para leer la entrada del teclado
         int option; // Variable para almacenar la opción elegida por el usuario
 
@@ -73,7 +76,7 @@ public class Main {
                 case 8:
                     System.out.println("Gracias. ¡Hasta la próxima!");
                     scanner.close(); // Cerrar el scanner antes de salir
-                    System.out.print('\u0017'); //BUSCAR UNICODE PAR SIMULAR CTRL+W
+                    System.out.print('\u0017'); //BUSCAR UNICODE PARA SIMULAR CTRL+W
                     return; // Sale del bucle y termina el programa
                 default:
                     System.out.println("Opción no válida. Por favor, elige entre 1 y 8.");

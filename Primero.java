@@ -4,11 +4,9 @@ import java.util.Scanner; // Importamos la clase Scanner para leer la entrada de
  * Inicio de la aplicación
  */
 
-public class Primero {
+public class Primero extends Main {
     
-    private static GestionMedicos gestionMedicos = new GestionMedicos();
-    private static GestionEstudiantes gestionEstudiantes = new GestionEstudiantes();
-    
+       
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); // Creamos un objeto Scanner para leer la entrada del teclado
@@ -20,7 +18,7 @@ public class Primero {
             System.out.println("|         GESTIÓN DE MEDICOS         |");
             System.out.println("+------------------------------------+");
             System.out.println("| [1]  Listar todos los médicos      |");
-            System.out.println("| [2]  Misión Espacial               |");
+            System.out.println("| [2]  Dar de alta un médico         |");
             System.out.println("| [3]  Viaje Submarino               |");
             System.out.println("| [4]  Tesoros Ocultos               |");
             System.out.println("| [5]  Volver                        |");
@@ -40,16 +38,25 @@ public class Primero {
                 case 1:
                     System.out.println('\u000C');
                     System.out.println("LISTADO DE TODOS LOS MEDICOS DE LA CLÍNICA");
-                    gestionMedicos.imprimirListaMedicos();
-                    System.out.println("Pulsa intro para volver...");
+                    baseDatos.imprimirMedicos();
                     
-                    Scanner sc = new Scanner(System.in);
-                    String salir = sc.nextLine();
+                    System.out.println("Pulsa intro para volver...");                    
+                    Scanner sc1 = new Scanner(System.in);
+                    String salir1 = sc1.nextLine();
                     System.out.print('\u000C');
                     break;
                 case 2:
-                    System.out.println("Has elegido 'Misión Espacial'");
-                    // Aquí puedes añadir más código para realizar la acción correspondiente
+                    System.out.println('\u000C');
+                    System.out.println("INDICA EL NOMBRE DEL MEDICO");
+                    Scanner nm = new Scanner(System.in);
+                    String nombreMedico = nm.nextLine();
+                    Medicos medicoNuevo = new Medicos(nombreMedico, 3);
+                    baseDatos.agregarMedico(medicoNuevo);
+                    
+                    System.out.println("Pulsa intro para volver...");                    
+                    Scanner sc2 = new Scanner(System.in);
+                    String salir2 = sc2.nextLine();
+                    System.out.print('\u000C');
                     break;
                 case 3:
                     System.out.println("Has elegido 'Viaje Submarino'");
