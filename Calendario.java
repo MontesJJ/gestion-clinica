@@ -44,6 +44,22 @@ public class Calendario
             int day = calendario.get(Calendar.DATE);
             
             System.out.println();
+            System.out.println("+---------------------------------------+");
+            System.out.println("|                  2024                 |");
+            System.out.println("+---------------------------------------+");
+            
+            for(int i = day; i<(day+30); i++){
+                System.out.print(day);
+                calendario.roll(calendario.DATE, true);
+            }
+            System.out.println("");
+            System.out.println("| 08:00 - 09:00 |");
+            System.out.println("| 09:00 - 10:00 |");
+            System.out.println("| 10:00 - 11:00 |");
+            System.out.println("| 08:00 - 09:00 |");
+            System.out.println("| 08:00 - 09:00 |");
+            System.out.println("| 08:00 - 09:00 |");
+            System.out.println("| 08:00 - 09:00 |");
             
     }
     
