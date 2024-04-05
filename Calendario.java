@@ -62,6 +62,8 @@ public class Calendario
             System.out.println("| 08:00 - 09:00 |");
             
     }
-    
-    
+    //https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
+    //https://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html#setTime-java.util.Date-
+    //https://docs.oracle.com/javase/8/docs/api/java/util/GregorianCalendar.html
+    //https://docs.oracle.com/javase/8/docs/api/java/util/GregorianCalendar.html#setGregorianChange-java.util.Date-
 }
