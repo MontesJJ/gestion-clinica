@@ -1,6 +1,9 @@
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 /**
  * Write a description of class Calendario here.
  * 
@@ -43,23 +46,35 @@ public class Calendario
             int month = calendario.get(Calendar.MONTH);
             int day = calendario.get(Calendar.DATE);
             
-            System.out.println();
-            System.out.println("+---------------------------------------+");
-            System.out.println("|                  2024                 |");
-            System.out.println("+---------------------------------------+");
+            //Creo otra instancia del calendario para el dia de la semana
+            Calendar semana = Calendar.getInstance();
+            SimpleDateFormat diaSemana = new SimpleDateFormat("EEEE", new Locale("es", "ES"));
+
             
+            System.out.println(calendario.getTime());
+            System.out.println();
+            System.out.println("+-------------------------------------------------------------------------------------------------------------------------------------+");
+            System.out.println("|                                                                2024                                                                 |");
+            System.out.println("+-------------------------------------------------------------------------------------------------------------------------------------+");
+            System.out.print("|||||||||||||||||");
+                        for(int i = day; i<(day+30); i++){
+                System.out.printf(diaSemana.format(calendario.getTime()).substring(0, 3) + " ");
+                calendario.roll(calendario.DAY_OF_MONTH, true);
+            }
+
+            System.out.print("\n" + "|||||||||||||||||");
             for(int i = day; i<(day+30); i++){
-                System.out.print(day);
-                calendario.roll(calendario.DATE, true);
+                System.out.printf("%-4d", calendario.get(Calendar.DAY_OF_MONTH));
+                calendario.roll(calendario.DAY_OF_MONTH, true);
             }
             System.out.println("");
-            System.out.println("| 08:00 - 09:00 |");
+            System.out.println("| 08:00 - 09:00 |");//Tengo que plantear un bucle que primero mire si hay citas para esa hora, si es que si ya empiza a reccorer los dias, si es que no, sale del bucle
             System.out.println("| 09:00 - 10:00 |");
             System.out.println("| 10:00 - 11:00 |");
-            System.out.println("| 08:00 - 09:00 |");
-            System.out.println("| 08:00 - 09:00 |");
-            System.out.println("| 08:00 - 09:00 |");
-            System.out.println("| 08:00 - 09:00 |");
+            System.out.println("| 11:00 - 12:00 |");
+            System.out.println("| 12:00 - 13:00 |");
+            System.out.println("| 13:00 - 14:00 |");
+            System.out.println("| 14:00 - 15:00 |");//ASIIC 28∟ , ME HE QUEDADO EN EL ALT+130
             
     }
     //https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
