@@ -3,6 +3,8 @@ import java.util.GregorianCalendar;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Write a description of class Calendario here.
@@ -13,11 +15,12 @@ import java.util.Locale;
 public class Calendario
 {
     private Calendar calendario;
-    //private Calendar currentDate;
+    private ArrayList<GregorianCalendar> citas;
+    
     
     public Calendario(){
         calendario = new GregorianCalendar();
-        //currentDate = new GregorianCalendar();
+        citas = new ArrayList<>();
     }
     /**
      * Vamos a generar un calendario para 30 días a partir del día en el que se crea. Para poder crear el calendario de los medicos, vamos a contar con que
@@ -57,7 +60,7 @@ public class Calendario
             System.out.println("|                                                                2024                                                                 |");
             System.out.println("+-------------------------------------------------------------------------------------------------------------------------------------+");
             System.out.print("|||||||||||||||||");
-                        for(int i = day; i<(day+30); i++){
+            for(int i = day; i<(day+30); i++){
                 System.out.printf(diaSemana.format(calendario.getTime()).substring(0, 3) + " ");
                 calendario.roll(calendario.DAY_OF_MONTH, true);
             }
@@ -81,4 +84,54 @@ public class Calendario
     //https://docs.oracle.com/javase/8/docs/api/java/util/Calendar.html#setTime-java.util.Date-
     //https://docs.oracle.com/javase/8/docs/api/java/util/GregorianCalendar.html
     //https://docs.oracle.com/javase/8/docs/api/java/util/GregorianCalendar.html#setGregorianChange-java.util.Date-
+    
+    public void nuevaCita(){
+        //Primero, vamos a comprobar que la cita que se da de alta está dentro del rango de fechas permitido (HOY + 30 días) y que no hay ninguna otra cita para ese día/hora
+        boolean citaGuardada = false;
+        while(!citaGuardada){    
+            Scanner sc = new Scanner(System.in);
+            int mes;
+            System.out.println("Seleccione el día del mes en el que acudirá a la cita");
+            int dia = sc.nextInt();
+            System.out.println("Seleccione la hora para su cita. Si, por ejemplo, la hora es las 16:00, escriba 16");
+            int hora = sc.nextInt();            
+        
+            boolean hueco = true;
+            int index = 0;
+            while(hueco && index<citas.size()){
+                if(citas.get(index).get(Calendar.DAY_OF_MONTH) == dia  && citas.get(index).get(Calendar.HOUR_OF_DAY) == hora){
+                    hueco = false;
+                }else{
+                    index++;
+                }
+            }
+            
+            //Comprobamos si el dia seleccionado pertenece al mes en curso o al próximo mes
+            Calendar comprobarDia = new GregorianCalendar();
+            if(comprobarDia.get(Calendar.DATE) > dia){
+                mes = comprobarDia.get(Calendar.MONTH) + 1;
+            }else{
+                mes = comprobarDia.get(Calendar.MONTH);
+            }
+            
+            //si hay hueco para el dia seleccionado lo añadimos a la lista de citas
+            if(hueco){
+                citas.add(new GregorianCalendar(calendario.get(Calendar.YEAR), mes, dia, hora, 0, 0));
+                citaGuardada = true;
+                System.out.println("La cita se ha generado correctamente " + citas.get((citas.size()-1)).getTime());
+            }else{
+                System.out.println("No hay hueco disponible para la fecha y hora selccionadas, ¿Desea seleccionar otra?[Y/N]");
+                Scanner dt = new Scanner(System.in);
+                String nueva = dt.next();
+                if(!nueva.equals("y") && !nueva.equals("Y")){
+                    citaGuardada = true;
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+    
 }

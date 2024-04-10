@@ -8,4 +8,6 @@ comment2.target=void\ generarCalendario()
 comment2.text=\r\n\ Vamos\ a\ generar\ un\ calendario\ para\ 30\ d\u00EDas\ a\ partir\ del\ d\u00EDa\ en\ el\ que\ se\ crea.\ Para\ poder\ crear\ el\ calendario\ de\ los\ medicos,\ vamos\ a\ contar\ con\ que\r\n\ hay\ tres\ turnos;\ ma\u00F1ana,\ tarde\ y\ noche,\ y\ \r\n
 comment3.params=
 comment3.target=void\ printCalendar()
-numComments=4
+comment4.params=
+comment4.target=void\ nuevaCita()
+numComments=5
