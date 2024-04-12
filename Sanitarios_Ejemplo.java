@@ -5,13 +5,13 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Sanitarios
+public class Sanitarios_Ejemplo
 {
     // instance variables - replace the example below with your own
     private String nombre;
     private Calendario calendario;
     
-    public Sanitarios(String nombre){
+    public Sanitarios_Ejemplo(String nombre){
         this.nombre = nombre;
         calendario = new Calendario();
     }

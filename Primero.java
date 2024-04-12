@@ -1,10 +1,10 @@
 import java.util.Scanner; // Importamos la clase Scanner para leer la entrada del usuario
 
 /**
- * Inicio de la aplicación
+ * Esta parte de la aplicacion se centra en...
  */
 
-public class Primero extends Main {
+public class Primero extends Hospital {
     
        
     
@@ -23,7 +23,7 @@ public class Primero extends Main {
             System.out.println("| [4]  Tesoros Ocultos               |");
             System.out.println("| [5]  Volver                        |");
             System.out.println("+------------------------------------+");
-            System.out.print("Elige una opción (1-8): ");
+            System.out.print("Elige una opción (1-5): ");
 
             // Validamos la entrada del usuario
             while (!scanner.hasNextInt()) {
@@ -38,7 +38,7 @@ public class Primero extends Main {
                 case 1:
                     System.out.println('\u000C');
                     System.out.println("LISTADO DE TODOS LOS MEDICOS DE LA CLÍNICA");
-                    baseDatos.imprimirMedicos();
+                    
                     
                     System.out.println("Pulsa intro para volver...");                    
                     Scanner sc1 = new Scanner(System.in);
@@ -48,10 +48,7 @@ public class Primero extends Main {
                 case 2:
                     System.out.println('\u000C');
                     System.out.println("INDICA EL NOMBRE DEL MEDICO");
-                    Scanner nm = new Scanner(System.in);
-                    String nombreMedico = nm.nextLine();
-                    Medicos medicoNuevo = new Medicos(nombreMedico, 3);
-                    baseDatos.agregarMedico(medicoNuevo);
+
                     
                     System.out.println("Pulsa intro para volver...");                    
                     Scanner sc2 = new Scanner(System.in);
