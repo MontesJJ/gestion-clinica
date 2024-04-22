@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Sanitarios
+comment0.text=\r\n\ Los\ sanitarios\ pueden\ ser\ m\u00E9dicos\ o\ enfermeras\r\n\ Se\ distinguen\ del\ resto\ de\ empleados\ porque\ tienen\ citas\ programadas.\r\n\ Las\ citas\ pueden\ ser\:\ consultas\ externas,\ pruebas\ m\u00E9dicas,\ unidad\ m\u00E9dica\ especializada\ o\ paciente\ ingresado\r\n\ Tambi\u00E9n\ pueden\ tener\ asignados\ estudiantes.\r\n\ Dentro\ de\ los\ sanitarios,\ la\ diferencia\ entre\ m\u00E9dicos\ y\ enfermeras\ es\ que\ los\ medicos\ tienen\ asignada\ una\ especialidad.\r\n\ Adem\u00E1s,\ las\ enfermeras\ no\ est\u00E1n\ asignadas\ a\ ninguna\ unidad\ en\ concreto.\r\n
+comment1.params=especialidadAsignada\ unidadAsignada\ nombre\ telefono\ email
+comment1.target=Sanitarios(Especialidad,\ Unidad,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Sanitarios\r\n
+numComments=2

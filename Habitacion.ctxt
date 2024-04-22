@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Habitacion
+comment0.text=\r\n\ Hay\ 90\ habitaciones\ en\ el\ hospital.\ Al\ realizar\ un\ ingreso,\ hay\ que\ comprobar\ que\ haya\ alguna\ habitaci\u00F3n\ libre.\ \r\n\ Por\ cada\ habitacion\ es\ necesario\ dejar\ constancia\ de\ los\ ingresos\ que\ se\ han\ producido\ en\ ella\ para\ poder\ determinar\ si\ cuando\ se\ quiere\ ingresar\ un\ nuevo\ paciente\ la\ habitaci\u00F3n\ est\u00E1\ libre.\r\n\ Vamos\ a\ crear\ un\ arraylist\ de\ ingresos.\ Si\ el\ ultimo\ elemento\ del\ array\ list\ no\ tiene\ fecha\ de\ baja,\ quiere\ decir\ que\ la\ habitacion\ sigue\ ocupada.\r\n
+comment1.params=numeroHabitacion
+comment1.target=Habitacion(int)
+comment1.text=\r\n\ Constructor\r\n
+comment2.params=
+comment2.target=boolean\ estaLibre()
+numComments=3

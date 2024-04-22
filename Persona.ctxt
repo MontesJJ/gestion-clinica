@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Persona
+comment0.text=\r\n\ Esta\ clase\ va\ a\ contener\ los\ datos\ personal\ comunes\ a\ todas\ las\ personas\ representadas\ en\ la\ pr\u00E1ctica\r\n
+comment1.params=nombre\ telefono\ email
+comment1.target=Persona(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\r\n
+numComments=2

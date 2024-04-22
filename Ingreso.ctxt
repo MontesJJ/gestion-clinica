@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Ingreso
+comment0.text=\r\n\ Vamos\ a\ regustrar\ los\ ingresos\ de\ los\ pacientes\ en\ el\ hospital.\ Para\ cada\ ingreso\ haremos\ constar\ la\ fecha\ de\ inicio\ del\ ingreso\ y\ la\ fecha\ de\ fin.\r\n\ Tambi\u00E9n\ tendremos\ que\ guardar\ la\ informaci\u00F3n\ sobre\ el\ paciente\ ingresado\ y\ la\ habitaci\u00F3n\ asignada.\r\n
+comment1.params=paciente\ habitacion
+comment1.target=Ingreso(Paciente,\ Habitacion)
+comment1.text=\r\n\ Constructor\r\n
+comment2.params=
+comment2.target=void\ setAlta()
+comment3.params=
+comment3.target=void\ setBaja()
+comment4.params=
+comment4.target=java.util.Calendar\ getAlta()
+comment5.params=
+comment5.target=java.util.Calendar\ getBaja()
+numComments=6

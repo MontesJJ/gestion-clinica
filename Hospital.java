@@ -1,7 +1,8 @@
 import java.util.Scanner; // Importamos la clase Scanner para leer la entrada del usuario
 
 /**
- * Inicio de la aplicación
+ * Inicio de la aplicación. La clase Hospital va a contar con un ArrayList para cada una de las clases (Empleado, Estudiante, Paciente, Unidad, Habitación...).
+ * Creamos un metodo "iniciar" para que la aplicacion arranque con datos.
  */
 
 public class Hospital {
@@ -81,6 +82,11 @@ public class Hospital {
             }
         }
     }
+    
+    public void iniciar(){
+        
+    }
+    
 }
 
 

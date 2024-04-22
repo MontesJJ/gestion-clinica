@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Paciente
+comment0.text=\r\n\ El\ paciente,\ adem\u00E1s\ de\ los\ atributos\ heredados\ de\ persona,\ va\ a\ tener\ otros\ como\ ingresos,\ seguros,\ pagos...\r\n\ Tambien\ va\ a\ contar\ con\ un\ arraylist\ de\ objetos\ Expediente,\ donde\ se\ van\ a\ recoger\ todas\ las\ entradas\ del\ expediente.\r\n
+comment1.params=nombre\ telefono\ email
+comment1.target=Paciente(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\r\n\ Constructor\r\n
+numComments=2

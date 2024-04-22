@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Expediente
+comment0.text=\r\n\ Este\ objeto\ va\ a\ recoger\ los\ datos\ de\ un\ paciente\ tras\ una\ consulta\ o\ prueba\ m\u00E9dica.\ Fecha,\ departamento\ que\ genera\ el\ expediente\ y\ texto\ explicativo\r\n
+comment1.params=
+comment1.target=Expediente()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Expediente\r\n
+comment2.params=nuevaEntrada
+comment2.target=void\ setEntrada(java.lang.String)
+numComments=3
