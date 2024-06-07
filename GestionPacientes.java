@@ -1,44 +1,45 @@
-import java.util.Scanner; // Importamos la clase Scanner para leer la entrada del usuario
+import java.util.Scanner; 
 
 /**
- * Esta parte de la aplicacion se centra en...
+ * Esta parte de la aplicacion se centra en la gestión de los sanitarios. Las diferentes opciones se muestran a través de un menú.
  */
 
-public class Primero extends Hospital {
+public class GestionPacientes extends Hospital {
+            
+    public GestionPacientes() {
+    }    
     
-       
     
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // Creamos un objeto Scanner para leer la entrada del teclado
-        int option; // Variable para almacenar la opción elegida por el usuario
-
-        while (true) { // Un bucle infinito para mostrar el menú repetidamente hasta que el usuario decida salir
-            // Imprime el menú con diseño
+    public void iniciarMenu(){
+        
+        Scanner scanner = new Scanner(System.in);
+        int option;
+        
+        while (true) { 
+            
             System.out.println("+------------------------------------+");
             System.out.println("|         GESTIÓN DE MEDICOS         |");
             System.out.println("+------------------------------------+");
-            System.out.println("| [1]  Listar todos los médicos      |");
-            System.out.println("| [2]  Dar de alta un médico         |");
-            System.out.println("| [3]  Viaje Submarino               |");
-            System.out.println("| [4]  Tesoros Ocultos               |");
+            System.out.println("| [1]  Listar todos los pacientes    |");
+            System.out.println("| [2]  Dar de alta un paciente       |");
+            System.out.println("| [3]  Consultar expediente          |");
+            System.out.println("| [4]  Asignar cita                  |");
             System.out.println("| [5]  Volver                        |");
             System.out.println("+------------------------------------+");
             System.out.print("Elige una opción (1-5): ");
 
-            // Validamos la entrada del usuario
             while (!scanner.hasNextInt()) {
                 System.out.println("Por favor, introduce un número válido.");
-                scanner.next(); // esto es importante para descartar la entrada incorrecta
+                scanner.next(); 
                 System.out.print("Elige una opción (1-5): ");
             }
-            option = scanner.nextInt(); // Lee la opción del usuario
+            option = scanner.nextInt();
 
-            // Procesamos la elección del usuario
             switch (option) {
                 case 1:
                     System.out.println('\u000C');
                     System.out.println("LISTADO DE TODOS LOS MEDICOS DE LA CLÍNICA");
-                    
+                    System.out.println(unidades.get(0).getNombreUnidad());
                     
                     System.out.println("Pulsa intro para volver...");                    
                     Scanner sc1 = new Scanner(System.in);
@@ -56,20 +57,18 @@ public class Primero extends Hospital {
                     System.out.print('\u000C');
                     break;
                 case 3:
-                    System.out.println("Has elegido 'Viaje Submarino'");
-                    // Aquí puedes añadir más código para realizar la acción correspondiente
+                    System.out.println("Calendario de citas'");
+                    
                     break;
                 case 4:
-                    System.out.println("Has elegido 'Tesoros Ocultos'");
-                    // Aquí puedes añadir más código para realizar la acción correspondiente
+                    System.out.println("Has elegido 'Asignar estudiante'");
+                    
                     break;
              
                 case 5:
-                    
-                    System.out.println("Gracias por participar. ¡Hasta la próxima!");
-                    scanner.close(); // Cerrar el scanner antes de salir
+                    scanner.close();
                     System.out.print('\u000C');
-                    return; // Sale del bucle y termina el programa
+                    return;
                     
                 default:
                     System.out.println("Opción no válida. Por favor, elige entre 1 y 5.");

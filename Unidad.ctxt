@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=Unidad
-comment0.text=\r\n\ Estas\ son\ las\ unidades\ del\ hospital.\ Por\ defecto,\ vamos\ a\ considerar\ que\ las\ enfermeras\ no\ estan\ asignadas\ a\ ninguna\ unidad,\ pondremos\ valor\ "null"\r\n
-comment1.params=
-comment1.target=Unidad()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Unidad\r\n
-comment2.params=y
-comment2.target=int\ sampleMethod(int)
-comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
-numComments=3
+comment0.text=\r\n\ Estas\ son\ las\ unidades\ del\ hospital.\ Por\ defecto,\ vamos\ a\ considerar\ que\ las\ enfermeras\ no\ estan\ asignadas\ a\ ninguna\ unidad,\ pondremos\ valor\ "null".\r\n\ Hay\ 10\ unidades\:\ Administraci\u00F3n,\ consultas\ externas,\ hospitalizaci\u00F3n,\ pruebas\ m\u00E9dicas,\ unidades\ m\u00E9dicas\ especializadas,\ urgencias,UCI,\ unidad\ de\ formaci\u00F3n,\ cafeter\u00EDa\ y\ aparcamiento.\r\n
+comment1.params=nombreUnidad
+comment1.target=Unidad(java.lang.String)
+comment1.text=\r\n\ Constructor\r\n
+comment2.params=empleado
+comment2.target=void\ agregarEmpleado(Empleado)
+comment3.params=
+comment3.target=java.lang.String\ getNombreUnidad()
+comment4.params=
+comment4.target=java.util.ArrayList\ getEmpleadosAsignados()
+numComments=5

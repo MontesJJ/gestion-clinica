@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=Especialidad
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ especialidad\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=Especialidad()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ especialidad\r\n
-comment2.params=y
-comment2.target=int\ sampleMethod(int)
-comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
-numComments=3
+comment0.text=\r\n\ La\ clase\ especialidad\ hace\ referencia\ a\ la\ especialidad\ m\u00E9dica.\ Los\ sanitarios\ ser\u00E1n\ asignados\ a\ una\ especialidad\ m\u00E9dica\ cuando\ su\ unidad\ sea\ "Consultas\ externas".\r\n\ Las\ especialidades\ m\u00E9dicas\ son\:\ Aparato\ digestivo,\ cardiolog\u00EDa,\ cirug\u00EDa\ general,\ dermatolog\u00EDa,\ medicina\ interna,\ oncolog\u00EDa,\ oftalmolog\u00EDa,\ psquiatr\u00EDa\ y\ traumatolog\u00EDa.\r\n
+comment1.params=nombreEspecialidad
+comment1.target=Especialidad(java.lang.String)
+comment1.text=\r\n\ Constructor\r\n
+comment2.params=
+comment2.target=java.lang.String\ getNombreEspecialidad()
+comment3.params=sanitario
+comment3.target=void\ agregarSanitario(Sanitarios)
+comment4.params=
+comment4.target=void\ printSanitariosAsignados()
+numComments=5

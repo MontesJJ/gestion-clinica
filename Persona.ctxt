@@ -1,7 +1,13 @@
 #BlueJ class context
 comment0.target=Persona
-comment0.text=\r\n\ Esta\ clase\ va\ a\ contener\ los\ datos\ personal\ comunes\ a\ todas\ las\ personas\ representadas\ en\ la\ pr\u00E1ctica\r\n
-comment1.params=nombre\ telefono\ email
+comment0.text=\r\n\ Esta\ clase\ va\ a\ contener\ los\ datos\ personal\ comunes\ a\ todas\ las\ personas\ representadas\ en\ la\ pr\u00E1ctica.\ Esta\ clase\ es\ abstracta,\ nunca\ se\ va\ a\ instanciar\ y\ va\ a\ contener\ un\ metodo\ abstracto\r\n
+comment1.params=nombre\ telefono\ dni
 comment1.target=Persona(java.lang.String,\ java.lang.String,\ java.lang.String)
 comment1.text=\r\n\ Constructor\r\n
-numComments=2
+comment2.params=nombre
+comment2.target=java.lang.String\ generarEmail(java.lang.String)
+comment3.params=nombre
+comment3.target=void\ comprobarNombre(java.lang.String)
+comment4.params=nombre
+comment4.target=void\ comprobarNombreCompleto(java.lang.String)
+numComments=5

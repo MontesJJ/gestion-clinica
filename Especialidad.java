@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Especialidad
 {
     private String nombreEspecialidad;
-    private ArrayList<Sanitarios> sanitariosAsignados;
+    private ArrayList<Empleado> sanitariosAsignados;
     /**
      * Constructor
      */
@@ -19,5 +19,14 @@ public class Especialidad
         return nombreEspecialidad;
     }
     
+    public void agregarSanitario(Empleado sanitario){
+        sanitariosAsignados.add(sanitario);
+    }
+    
+    public void printSanitariosAsignados(){
+        for(Empleado sanitario : sanitariosAsignados){
+            System.out.println(sanitario);
+        }
+    }
 
 }

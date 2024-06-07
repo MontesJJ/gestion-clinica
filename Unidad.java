@@ -7,15 +7,13 @@ public class Unidad
 {
     
     private String nombreUnidad;
-    private String tipoUnidad;
     private ArrayList<Empleado> empleadosAsignados;
 
     /**
      * Constructor
      */
-    public Unidad(String nombreUnidad, String tipoUnidad) {
+    public Unidad(String nombreUnidad) {
         this.nombreUnidad = nombreUnidad;
-        this.tipoUnidad = tipoUnidad;
         this.empleadosAsignados = new ArrayList<>();
     }
     
@@ -26,10 +24,6 @@ public class Unidad
 
     public String getNombreUnidad() {
         return nombreUnidad;
-    }
-
-    public String getTipoUnidad() {
-        return tipoUnidad;
     }
 
     public ArrayList getEmpleadosAsignados() {

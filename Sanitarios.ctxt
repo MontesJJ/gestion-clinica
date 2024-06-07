@@ -1,7 +1,12 @@
 #BlueJ class context
 comment0.target=Sanitarios
-comment0.text=\r\n\ Los\ sanitarios\ pueden\ ser\ m\u00E9dicos\ o\ enfermeras\r\n\ Se\ distinguen\ del\ resto\ de\ empleados\ porque\ tienen\ citas\ programadas.\r\n\ Las\ citas\ pueden\ ser\:\ consultas\ externas,\ pruebas\ m\u00E9dicas,\ unidad\ m\u00E9dica\ especializada\ o\ paciente\ ingresado\r\n\ Tambi\u00E9n\ pueden\ tener\ asignados\ estudiantes.\r\n\ Dentro\ de\ los\ sanitarios,\ la\ diferencia\ entre\ m\u00E9dicos\ y\ enfermeras\ es\ que\ los\ medicos\ tienen\ asignada\ una\ especialidad.\r\n\ Adem\u00E1s,\ las\ enfermeras\ no\ est\u00E1n\ asignadas\ a\ ninguna\ unidad\ en\ concreto.\r\n
-comment1.params=especialidadAsignada\ unidadAsignada\ nombre\ telefono\ email
+comment0.text=\r\n\ Los\ sanitarios\ pueden\ ser\ m\u00E9dicos\ o\ enfermeras\r\n\ Se\ distinguen\ del\ resto\ de\ empleados\ porque\ tienen\ citas\ programadas.\r\n\ Las\ citas\ pueden\ ser\:\ consultas\ externas,\ pruebas\ m\u00E9dicas,\ unidad\ m\u00E9dica\ especializada\ o\ paciente\ ingresado\r\n\ Tambi\u00E9n\ pueden\ tener\ asignados\ estudiantes.\r\n\ Dentro\ de\ los\ sanitarios,\ la\ diferencia\ entre\ m\u00E9dicos\ y\ enfermeras\ es\ que\ los\ medicos\ tienen\ asignada\ una\ especialidad.\r\n\ Adem\u00E1s,\ las\ enfermeras\ no\ est\u00E1n\ asignadas\ a\ ninguna\ unidad\ en\ concreto.\r\n\ He\ considerado\ que\ las\ consultas\ externas\ est\u00E1n\ formadas\ por\ dos\ medicos\ y\ dos\ enfermeras.\ Hay\ dos\ turno,\ de\ ma\u00F1ana\ y\ de\ tarde,\ de\ lunes\ a\ viernes.\ En\ cada\ turno\ hay\ un\ medico\ y\ una\ enfermera.\r\n
+comment1.params=especialidadAsignada\ unidadAsignada\ nombre\ telefono\ dni
 comment1.target=Sanitarios(Especialidad,\ Unidad,\ java.lang.String,\ java.lang.String,\ java.lang.String)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Sanitarios\r\n
-numComments=2
+comment1.text=\r\n\ Constructor\ para\ la\ clase\ Iniciar,\ donde\ ya\ asignamos\ directamente\ la\ especialidad\r\n
+comment2.params=unidadAsignada\ nombre\ telefono\ email
+comment2.target=Sanitarios(Unidad,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.text=\r\n\ Constructor\ para\ dar\ de\ alta\ manualmente\ un\ nuevo\ usuario\r\n
+comment3.params=
+comment3.target=Especialidad\ asignarEspecialidad()
+numComments=4

@@ -1,10 +1,9 @@
 #BlueJ class context
 comment0.target=Estudiante
 comment0.text=\r\n\ El\ estudiante\ se\ distingue\ de\ los\ otros\ objeto\ persona\ en\ que\ tiene\ una\ relacion\ de\ dependencia\ con\ el\ miembro\ del\ personal\ medico\ asignado\r\n
-comment1.params=nombre\ telefono\ email
+comment1.params=nombre\ telefono\ dni
 comment1.target=Estudiante(java.lang.String,\ java.lang.String,\ java.lang.String)
-comment1.text=\r\n\ Constructor\ clase\ Estudiante\r\n
-comment2.params=y
-comment2.target=int\ sampleMethod(int)
-comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\ \r\n\ @param\ \ y\ \ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ \ the\ sum\ of\ x\ and\ y\ \r\n
+comment1.text=\r\n\ Constructor\r\n
+comment2.params=nombre
+comment2.target=java.lang.String\ generarEmail(java.lang.String)
 numComments=3

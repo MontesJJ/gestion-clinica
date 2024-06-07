@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.target=Hospital
-comment0.text=\r\n\ Inicio\ de\ la\ aplicaci\u00F3n\r\n
+comment0.text=\r\n\ Inicio\ de\ la\ aplicaci\u00F3n.\ La\ clase\ Hospital\ va\ a\ contar\ con\ un\ ArrayList\ para\ cada\ una\ de\ las\ clases\ (Empleado,\ Estudiante,\ Paciente,\ Unidad,\ Habitaci\u00F3n...).\r\n\ Creamos\ un\ metodo\ "iniciar"\ para\ que\ la\ aplicacion\ arranque\ con\ datos.\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-numComments=2
+comment2.params=
+comment2.target=void\ iniciar()
+numComments=3

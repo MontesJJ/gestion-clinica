@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ConsultaExterna
+comment0.text=\r\n\ Nos\ va\ a\ servir\ para\ saber\ que,\ si\ el\ objeto\ unidad\ creado\ es\ de\ tipo\ ConsultaMedica,\ tenemos\ que\ crear\ un\ objeto\ Especialidad\ para\ el\ Sanitario.\r\n\ He\ considerado\ que\ las\ consultas\ externas\ est\u00E1n\ formadas\ por\ dos\ medicos\ y\ dos\ enfermeras.\ Hay\ dos\ turno,\ de\ ma\u00F1ana\ y\ de\ tarde,\ de\ lunes\ a\ viernes.\ En\ cada\ turno\ hay\ un\ medico\ y\ una\ enfermera.\r\n
+comment1.params=nombreUnidad
+comment1.target=ConsultaExterna(java.lang.String)
+comment1.text=\r\n\ Constructor\r\n
+numComments=2

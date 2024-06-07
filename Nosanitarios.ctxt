@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Nosanitarios
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Nosanitarios\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=unidadAsignada\ nombre\ telefono\ email
+comment0.text=\r\n\ Los\ empleados\ no\ sanitarios,\ al\ igual\ que\ los\ sanitarios,\ estan\ asignados\ a\ una\ unidad.\r\n
+comment1.params=unidadAsignada\ nombre\ telefono\ dni
 comment1.target=Nosanitarios(Unidad,\ java.lang.String,\ java.lang.String,\ java.lang.String)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Nosanitarios\r\n
+comment1.text=\r\n\ Constructor\r\n
 numComments=2

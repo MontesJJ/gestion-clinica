@@ -6,6 +6,7 @@
  * También pueden tener asignados estudiantes.
  * Dentro de los sanitarios, la diferencia entre médicos y enfermeras es que los medicos tienen asignada una especialidad.
  * Además, las enfermeras no están asignadas a ninguna unidad en concreto.
+ * He considerado que las consultas externas están formadas por dos medicos y dos enfermeras. Hay dos turno, de mañana y de tarde, de lunes a viernes. En cada turno hay un medico y una enfermera.
  */
 public class Sanitarios extends Empleado
 {
@@ -15,9 +16,9 @@ public class Sanitarios extends Empleado
     /**
      * Constructor para la clase Iniciar, donde ya asignamos directamente la especialidad
      */
-    public Sanitarios(Especialidad especialidadAsignada,Unidad unidadAsignada, String nombre, String telefono, String email)
+    public Sanitarios(Especialidad especialidadAsignada,Unidad unidadAsignada, String nombre, String telefono, String dni)
     {
-        super(unidadAsignada, nombre, telefono, email);
+        super(unidadAsignada, nombre, telefono, dni);
         this.especialidadAsignada = especialidadAsignada;
     }
     

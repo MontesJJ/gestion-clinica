@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=GestionEmpleados
+comment0.text=\r\n\ Esta\ parte\ de\ la\ aplicacion\ se\ muestan\ las\ diferentes\ acciones\ que\ se\ pueden\ llevar\ a\ cabo\ con\ los\ empleados.\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=
+comment2.target=void\ altaEmpleado()
+numComments=3
