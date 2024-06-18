@@ -52,4 +52,8 @@ public abstract class Persona
         comprobarNombre(nombre);
     }
     
+    public String getNombre(){
+        return nombre;
+    }
+    
 }

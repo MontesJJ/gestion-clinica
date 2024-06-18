@@ -6,4 +6,6 @@ comment1.target=Paciente(java.lang.String,\ java.lang.String,\ java.lang.String,
 comment1.text=\r\n\ Constructor\r\n
 comment2.params=nombre
 comment2.target=java.lang.String\ generarEmail(java.lang.String)
-numComments=3
+comment3.params=calendario\ unidad
+comment3.target=void\ agregarCita(java.util.GregorianCalendar,\ Unidad)
+numComments=4

@@ -11,7 +11,7 @@
 public class Sanitarios extends Empleado
 {
     private Especialidad especialidadAsignada;
-    private Cita citas;
+    private Cita cita;
 
     /**
      * Constructor para la clase Iniciar, donde ya asignamos directamente la especialidad
@@ -20,6 +20,7 @@ public class Sanitarios extends Empleado
     {
         super(unidadAsignada, nombre, telefono, dni);
         this.especialidadAsignada = especialidadAsignada;
+        cita = new Cita();
     }
     
     
@@ -29,6 +30,7 @@ public class Sanitarios extends Empleado
     public Sanitarios(Unidad unidadAsignada, String nombre, String telefono, String email)
     {
         super(unidadAsignada, nombre, telefono, email);
+        cita = new Cita();
         if(unidadAsignada instanceof ConsultaExterna){
             asignarEspecialidad();
         }else{
@@ -41,6 +43,18 @@ public class Sanitarios extends Empleado
         //Aqui tenemos que crear un metodo que pregunte cual es la especialidad asignada preguntando al user por teclado
         
         return null;
+    }
+    
+    public Unidad getUnidad(){
+        return unidadAsignada;
+    }
+    
+        public void crearCita(Paciente paciente){
+        cita.nuevaCita(paciente, getUnidad());
+    }
+    
+    public void imprimirCitas(){
+        cita.imprimirCitas();
     }
 
     

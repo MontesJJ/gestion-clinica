@@ -6,7 +6,7 @@
 public class Empleado extends Persona
 {
     
-    private Unidad unidadAsignada;
+    protected Unidad unidadAsignada;
 
     /**
      * Constructor, asignamos la unidad y heredamos los datos personales de la clase Persona

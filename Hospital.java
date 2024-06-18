@@ -123,17 +123,22 @@ public class Hospital {
         
         Unidad derma = new ConsultaExterna("Dermatología");
         unidades.add(derma);
-        */
+        
         Unidad medicinaInterna = new ConsultaExterna("Medicina interna");
         unidades.add(medicinaInterna);
+        
         Unidad oncologia = new ConsultaExterna("Oncología");
         unidades.add(oncologia);
+        
         Unidad oftalmologia = new ConsultaExterna("Oftalmología");
         unidades.add(oftalmologia);
+        
         Unidad psico = new ConsultaExterna("Psiquiatría");
         unidades.add(psico);
+        
         Unidad trauma = new ConsultaExterna("Traumatología");
         unidades.add(trauma);
+        */
         Unidad consultasExternas = new Unidad("Consultas externas");
         unidades.add(consultasExternas);
         
@@ -142,6 +147,12 @@ public class Hospital {
         Especialidad cardiologia = new Especialidad("Cardiología");
         Especialidad cirugiaGeneral = new Especialidad("Cirugia general");
         Especialidad dermatologia = new Especialidad("Dermatología");
+        Especialidad medicinaInterna = new Especialidad("Medicina interna");
+        Especialidad oncologia = new Especialidad("Oncología");
+        Especialidad oftalmologia = new Especialidad("Oftalmología");
+        Especialidad psiquitria = new Especialidad("Psiquiatría");
+        Especialidad traumatologia = new Especialidad("Traumatología");
+        
         //Alta empleados
         
             // Administración
@@ -255,47 +266,44 @@ public class Hospital {
             Empleado nhernandez = new Sanitarios(dermatologia, consultasExternas, "Nuria Hernández Gómez", "645750591", "45678901N");
             empleados.add(nhernandez);
             dermatologia.agregarSanitario(nhernandez);
-
             
             // Consultas externas - Medicina Interna
-            Empleado dsantos = new Empleado(medicinaInterna, "Daniel Santos Gil", "645256256", "67890123P");
+            Empleado dsantos = new Sanitarios(medicinaInterna, consultasExternas, "Daniel Santos Gil", "645256256", "67890123P");
             empleados.add(dsantos);
-            Empleado Fmora = new Empleado(medicinaInterna, "Francisco Mora Robles", "695252500", "78901234Q");
-            empleados.add(Fmora);
-            Empleado saragon = new Empleado(medicinaInterna, "Sara Aragon Blanco", "628458891", "89012345R");
-            empleados.add(saragon);
+            medicinaInterna.agregarSanitario(dsantos);
+            Empleado fmora = new Sanitarios(medicinaInterna, consultasExternas,"Francisco Mora Robles", "695252500", "78901234Q");
+            empleados.add(fmora);
+            medicinaInterna.agregarSanitario(fmora);
             
             // Consultas externas - Oncología
-            Empleado jpardo = new Empleado(oncologia, "José Pardo Fernández", "631100891", "90123456S");
+            Empleado jpardo = new Sanitarios(oncologia, consultasExternas, "José Pardo Fernández", "631100891", "90123456S");
             empleados.add(jpardo);
-            Empleado amarquez = new Empleado(oncologia, "Ana Márquez Pérez", "645055010", "01234567T");
+            oncologia.agregarSanitario(jpardo);
+            Empleado amarquez = new Sanitarios(oncologia, consultasExternas, "Ana Márquez Pérez", "645055010", "01234567T");
             empleados.add(amarquez);
-            Empleado rmendez = new Empleado(oncologia, "Raúl Méndez Serrano", "651193425", "12345678U");
-            empleados.add(rmendez);
+            oncologia.agregarSanitario(amarquez);
             
             // Consultas externas - Oftalmología
-            Empleado sblanco = new Empleado(oftalmologia, "Silvia Blanco Ramírez", "633395325", "23456789V");
+            Empleado sblanco = new Sanitarios(oftalmologia, consultasExternas, "Silvia Blanco Ramírez", "633395325", "23456789V");
             empleados.add(sblanco);
-            Empleado jprieto = new Empleado(oftalmologia, "Jorge Prieto Ortega", "652595344", "34567890W");
+            oftalmologia.agregarSanitario(sblanco);
+            Empleado jprieto = new Sanitarios(oftalmologia, consultasExternas, "Jorge Prieto Ortega", "652595344", "34567890W");
             empleados.add(jprieto);
-            Empleado yramirez = new Empleado(oftalmologia, "Yolanda Ramírez Díaz", "686145789", "45678901X");
-            empleados.add(yramirez);
+            oftalmologia.agregarSanitario(jprieto);
             
             // Consultas externas - Psiquiatría
-            Empleado fserrano = new Empleado(psico, "Francisco Serrano López", "648159753", "56789012Y");
+            Empleado fserrano = new Sanitarios(psiquitria, consultasExternas, "Francisco Serrano López", "648159753", "56789012Y");
             empleados.add(fserrano);
-            Empleado amarina = new Empleado(psico, "Alicia Marina Vega", "665444789", "67890123Z");
+            psiquitria.agregarSanitario(fserrano);
+            Empleado amarina = new Sanitarios(psiquitria, consultasExternas, "Alicia Marina Vega", "665444789", "67890123Z");
             empleados.add(amarina);
-            Empleado rmolina = new Empleado(psico, "Ricardo Molina Sánchez", "632554419", "78901234A");
-            empleados.add(rmolina);
+            psiquitria.agregarSanitario(amarina);
             
             // Consultas externas - Traumatología
-            Empleado hbermejo = new Sanitarios(trauma, "Héctor Bermejo Hernández", "601223587", "89012345B");
+            Empleado hbermejo = new Sanitarios(traumatologia, consultasExternas, "Héctor Bermejo Hernández", "601223587", "89012345B");
             empleados.add(hbermejo);
-            Empleado ogutierrez = new Empleado(trauma, "Olga Gutiérrez Sanz", "632258852", "90123456C");
+            Empleado ogutierrez = new Sanitarios(traumatologia, consultasExternas, "Olga Gutiérrez Sanz", "632258852", "90123456C");
             empleados.add(ogutierrez);
-            Empleado mdominguez = new Empleado(trauma, "Marcos Domínguez Moya", "615546456", "01234567D");
-            empleados.add(mdominguez);
 
             //Alta enfermeros
             Empleado mreyes = new Sanitarios(null, consultasExternas, "María Reyes Sánchez", "658678458", "73299333K");
@@ -310,6 +318,16 @@ public class Hospital {
             empleados.add(escobar);
             Empleado jmoreno = new Sanitarios(null, consultasExternas, "Jorge Moreno Gil", "658578366", "56789012O");
             empleados.add(jmoreno);
+            Empleado saragon = new Sanitarios(null, consultasExternas, "Sara Aragon Blanco", "628458891", "89012345R");
+            empleados.add(saragon);
+            Empleado rmendez = new Sanitarios(null, consultasExternas, "Raúl Méndez Serrano", "651193425", "12345678U");
+            empleados.add(rmendez);
+            Empleado yramirez = new Sanitarios(null, consultasExternas, "Yolanda Ramírez Díaz", "686145789", "45678901X");
+            empleados.add(yramirez);
+            Empleado rmolina = new Sanitarios(null, consultasExternas, "Ricardo Molina Sánchez", "632554419", "78901234A");
+            empleados.add(rmolina);
+            Empleado mdominguez = new Sanitarios(null, consultasExternas, "Marcos Domínguez Moya", "615546456", "01234567D");
+            empleados.add(mdominguez);
     
     }
     
