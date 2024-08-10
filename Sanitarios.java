@@ -11,7 +11,7 @@
 public class Sanitarios extends Empleado
 {
     private Especialidad especialidadAsignada;
-    private Cita cita;
+    private Calendario calendario;
 
     /**
      * Constructor para la clase Iniciar, donde ya asignamos directamente la especialidad
@@ -20,17 +20,16 @@ public class Sanitarios extends Empleado
     {
         super(unidadAsignada, nombre, telefono, dni);
         this.especialidadAsignada = especialidadAsignada;
-        cita = new Cita();
+        calendario = new Calendario();
     }
-    
-    
+        
     /**
      * Constructor para dar de alta manualmente un nuevo usuario
      */
     public Sanitarios(Unidad unidadAsignada, String nombre, String telefono, String email)
     {
         super(unidadAsignada, nombre, telefono, email);
-        cita = new Cita();
+        calendario = new Calendario();
         if(unidadAsignada instanceof ConsultaExterna){
             asignarEspecialidad();
         }else{
@@ -49,12 +48,12 @@ public class Sanitarios extends Empleado
         return unidadAsignada;
     }
     
-        public void crearCita(Paciente paciente){
-        cita.nuevaCita(paciente, getUnidad());
+    public void crearCita(Paciente paciente){
+        calendario.nuevaCita(paciente, getUnidad());
     }
     
     public void imprimirCitas(){
-        cita.imprimirCitas();
+        calendario.imprimirCitas();
     }
 
     

@@ -13,14 +13,14 @@ import java.util.Map;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Cita
+public class Calendario
 {
     private Calendar calendario;
     private HashMap<GregorianCalendar, Paciente> cits;
     private ArrayList<GregorianCalendar> citas;
     
     
-    public Cita(){
+    public Calendario(){
         calendario = new GregorianCalendar();
         citas = new ArrayList<>();
         cits = new HashMap<>();
@@ -80,7 +80,7 @@ public class Cita
             System.out.println("| 11:00 - 12:00 |");
             System.out.println("| 12:00 - 13:00 |");
             System.out.println("| 13:00 - 14:00 |");
-            System.out.println("| 14:00 - 15:00 |");//ASIIC 28∟ , ME HE QUEDADO EN EL ALT+130
+            System.out.println("| 14:00 - 15:00 |");
             
     }
     //https://docs.oracle.com/javase/8/docs/api/java/util/Date.html
@@ -99,10 +99,20 @@ public class Cita
             System.out.println("Seleccione la hora para su cita. Si, por ejemplo, la hora es las 16:00, escriba 16");
             int hora = sc.nextInt();            
         
+            //Declaro un ArrayList que va a contener todas las claves del hashmap, y asi poder acceder a el a través de un índice
+            ArrayList<GregorianCalendar> keys = new ArrayList<>(cits.keySet());
             boolean hueco = true;
             int index = 0;
-            while(hueco && index<citas.size()){
-                if(citas.get(index).get(Calendar.DAY_OF_MONTH) == dia  && citas.get(index).get(Calendar.HOUR_OF_DAY) == hora){
+            /*while(hueco && index<citas.size()){
+                if(citas.get(index).get(Calendar.DAY_OF_MONTH) == dia && citas.get(index).get(Calendar.HOUR_OF_DAY) == hora){
+                    hueco = false;
+                }else{
+                    index++;
+                }
+            }*/
+            
+            while(hueco && index<cits.size()){
+                if(keys.get(index).get(Calendar.DAY_OF_MONTH) == dia && keys.get(index).get(Calendar.HOUR_OF_DAY) == hora){
                     hueco = false;
                 }else{
                     index++;
@@ -139,7 +149,7 @@ public class Cita
     
     public void imprimirCitas(){
         for(Map.Entry<GregorianCalendar, Paciente> citas : cits.entrySet()){
-            System.out.println(citas.getValue().getNombre() + citas.getKey().getTime());
+            System.out.println(citas.getValue().getNombre() + " " + citas.getKey().getTime());
         }
     }
     
