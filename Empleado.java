@@ -20,6 +20,7 @@ public class Empleado extends Persona
 
     //Esta función la voy a usar para generar el correo del nuevo empleado, cogiendo la primera letra de su nombre y su primer apellido.
     public String generarEmail(String nombre){
+        comprobarNombre(nombre);
         String alias="";
         int inicioApellido = 0;
         int finApellido = 0;

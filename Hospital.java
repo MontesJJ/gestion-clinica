@@ -6,15 +6,18 @@ import java.util.ArrayList;
  */
 
 public class Hospital {
-     
+    
+    private static GestionEmpleados gestionEmpleados;
     private static GestionMedicos gestionMedicos;
     private static GestionPacientes gestionPacientes;
     protected static ArrayList<Unidad> unidades;
     protected static ArrayList<Empleado> empleados;
+    protected static ArrayList<Especialidad> especialidades;
     
     public static void main(String[] args) {
         unidades = new ArrayList<>();
         empleados = new ArrayList<>();
+        especialidades = new ArrayList<>();
         iniciar();
         Scanner scanner = new Scanner(System.in); 
         int option; 
@@ -45,10 +48,10 @@ public class Hospital {
             
             switch (option) {
                 case 1:
-                    System.out.println("Has elegido 'Empleados'");
+                    System.out.println("Has elegido 'Gestion Empleados'");
                     System.out.print('\u000C');
-                    String[] argsPrimero = {"arg1", "arg2"};
-                    GestionMedicos.main(argsPrimero);
+                    gestionEmpleados = new GestionEmpleados();
+                    gestionEmpleados.iniciarMenu();                    
                     
                     break;
                 case 2:
@@ -59,8 +62,11 @@ public class Hospital {
                     
                     break;
                 case 3:
-                    System.out.println("Has elegido 'Gestión Estudiantes'");
-                    
+                    System.out.println("Has elegido 'Gestión Empleados'");
+                    System.out.print('\u000C');
+                    String[] argEmpleados = {};
+                    GestionMedicos.main(argEmpleados);
+
                     break;
                 case 4:
                     System.out.println("Has elegido 'Habitaciones'");
@@ -79,6 +85,7 @@ public class Hospital {
                     
                     break;
                 case 8:
+                    System.out.print('\u000C');
                     System.out.println("Gracias. ¡Hasta la próxima!");
                     scanner.close(); 
                     System.out.print('\u0017'); //BUSCAR UNICODE PARA SIMULAR CTRL+W
@@ -101,57 +108,43 @@ public class Hospital {
         unidades.add(umeDiabetes);
         Unidad umeCardio = new Unidad("Unidad médica especializada de enfermedades cardiovasculares");
         unidades.add(umeCardio);
+        Unidad consultasExternas = new Unidad("Consultas externas");
+        unidades.add(consultasExternas);
         Unidad urgencias = new Unidad("Urgencias");
         unidades.add(urgencias);
-        Unidad cafeteria = new Unidad("Cafetería");
-        unidades.add(cafeteria);
         Unidad uci = new Unidad("UCI");
         unidades.add(uci);
+        Unidad cafeteria = new Unidad("Cafetería");
+        unidades.add(cafeteria);
         Unidad formacion = new Unidad("Unidad de formación");
         unidades.add(formacion);
         Unidad aparcamiento = new Unidad("Aparcamiento");
         unidades.add(aparcamiento);
-        
-        //Alta de consultas externas
-        /**Unidad digestivo = new ConsultaExterna("Aparato digestivo");
-        *unidades.add(digestivo);
-        *Unidad cardiologia = new ConsultaExterna("Cardiología");
-        *unidades.add(cardiologia);
-        *
-        *Unidad cirugiaGeneral = new ConsultaExterna("Cirugía general");
-        *unidades.add(cirugiaGeneral);
-        
-        Unidad derma = new ConsultaExterna("Dermatología");
-        unidades.add(derma);
-        
-        Unidad medicinaInterna = new ConsultaExterna("Medicina interna");
-        unidades.add(medicinaInterna);
-        
-        Unidad oncologia = new ConsultaExterna("Oncología");
-        unidades.add(oncologia);
-        
-        Unidad oftalmologia = new ConsultaExterna("Oftalmología");
-        unidades.add(oftalmologia);
-        
-        Unidad psico = new ConsultaExterna("Psiquiatría");
-        unidades.add(psico);
-        
-        Unidad trauma = new ConsultaExterna("Traumatología");
-        unidades.add(trauma);
-        */
-        Unidad consultasExternas = new Unidad("Consultas externas");
-        unidades.add(consultasExternas);
+
         
         //Alta especialidades
         Especialidad aparatoDigestivo = new Especialidad("Aparato digestivo");
+        especialidades.add(aparatoDigestivo);
         Especialidad cardiologia = new Especialidad("Cardiología");
+        especialidades.add(cardiologia);
         Especialidad cirugiaGeneral = new Especialidad("Cirugia general");
+        especialidades.add(cirugiaGeneral);
         Especialidad dermatologia = new Especialidad("Dermatología");
+        especialidades.add(dermatologia);
         Especialidad medicinaInterna = new Especialidad("Medicina interna");
+        especialidades.add(medicinaInterna);
         Especialidad oncologia = new Especialidad("Oncología");
+        especialidades.add(oncologia);
         Especialidad oftalmologia = new Especialidad("Oftalmología");
-        Especialidad psiquitria = new Especialidad("Psiquiatría");
+        especialidades.add(oftalmologia);
+        Especialidad psiquiatria = new Especialidad("Psiquiatría");
+        especialidades.add(psiquiatria);
         Especialidad traumatologia = new Especialidad("Traumatología");
+        especialidades.add(traumatologia);
+        Especialidad endocrino = new Especialidad("Endocrinología");
+        especialidades.add(endocrino);
+        Especialidad medicinaGeneral = new Especialidad("Medicina General");
+        especialidades.add(medicinaGeneral);
         
         //Alta empleados
         
@@ -180,35 +173,35 @@ public class Hospital {
             empleados.add(bsanchez);
             
             // Unidades médicas especializadas - Diabetes
-            Empleado amartinez = new Empleado(umeDiabetes, "Alberto Martínez Hidalgo", "605447712", "34567890M");
+            Empleado amartinez = new Sanitarios(endocrino, umeDiabetes, "Alberto Martínez Hidalgo", "605447712", "34567890M");
             empleados.add(amartinez);
-            Empleado mestrada = new Empleado(umeDiabetes, "Marta Estrada Jiménez", "611364500", "45678901N");
+            Empleado mestrada = new Sanitarios(endocrino, umeDiabetes, "Marta Estrada Jiménez", "611364500", "45678901N");
             empleados.add(mestrada);
-            Empleado dperez = new Empleado(umeDiabetes, "Daniel Pérez Fernández", "612345678", "56789012O");
+            Empleado dperez = new Sanitarios(endocrino, umeDiabetes, "Daniel Pérez Fernández", "612345678", "56789012O");
             empleados.add(dperez);
             
             // Unidades médicas especializadas - Enfermedades cardiovasculares
-            Empleado pgarcia = new Empleado(umeCardio, "Patricia García López", "665854421", "67890123P");
+            Empleado pgarcia = new Sanitarios(cardiologia, umeCardio, "Patricia García López", "665854421", "67890123P");
             empleados.add(pgarcia);
-            Empleado jsantos = new Empleado(umeCardio, "Jorge Santos Gil", "633258415", "78901234Q");
+            Empleado jsantos = new Sanitarios(cardiologia, umeCardio, "Jorge Santos Gil", "633258415", "78901234Q");
             empleados.add(jsantos);
-            Empleado vflores = new Empleado(umeCardio, "Victoria Flores Martín", "635997854", "89012345R");
+            Empleado vflores = new Sanitarios(cardiologia, umeCardio, "Victoria Flores Martín", "635997854", "89012345R");
             empleados.add(vflores);
             
             // Urgencias
-            Empleado pfernandez = new Empleado(urgencias, "Pablo Fernández Torres", "644587532", "90123456S");
+            Empleado pfernandez = new Sanitarios(medicinaGeneral, urgencias, "Pablo Fernández Torres", "644587532", "90123456S");
             empleados.add(pfernandez);
-            Empleado asuarez = new Empleado(urgencias, "Alicia Suárez Rodríguez", "622456789", "01234567T");
+            Empleado asuarez = new Sanitarios(medicinaGeneral, urgencias, "Alicia Suárez Rodríguez", "622456789", "01234567T");
             empleados.add(asuarez);
-            Empleado jmendez = new Empleado(urgencias, "José Méndez Serrano", "625241012", "12345678U");
+            Empleado jmendez = new Sanitarios(medicinaGeneral, urgencias, "José Méndez Serrano", "625241012", "12345678U");
             empleados.add(jmendez);
             
             // UCI
-            Empleado msantos = new Empleado(uci, "Marcos Santos Gil", "639128541", "23456789V");
+            Empleado msantos = new Sanitarios(medicinaInterna, uci, "Marcos Santos Gil", "639128541", "23456789V");
             empleados.add(msantos);
-            Empleado ejimenez = new Empleado(uci, "Elena Jiménez Vega", "620820911", "34567890W");
+            Empleado ejimenez = new Sanitarios(medicinaInterna, uci, "Elena Jiménez Vega", "620820911", "34567890W");
             empleados.add(ejimenez);
-            Empleado jortega = new Empleado(uci, "Javier Ortega Ramos", "613551001", "45678901X");
+            Empleado jortega = new Sanitarios(medicinaInterna, uci, "Javier Ortega Ramos", "613551001", "45678901X");
             empleados.add(jortega);
             
             // Unidad de formación
@@ -292,12 +285,12 @@ public class Hospital {
             oftalmologia.agregarSanitario(jprieto);
             
             // Consultas externas - Psiquiatría
-            Empleado fserrano = new Sanitarios(psiquitria, consultasExternas, "Francisco Serrano López", "648159753", "56789012Y");
+            Empleado fserrano = new Sanitarios(psiquiatria, consultasExternas, "Francisco Serrano López", "648159753", "56789012Y");
             empleados.add(fserrano);
-            psiquitria.agregarSanitario(fserrano);
-            Empleado amarina = new Sanitarios(psiquitria, consultasExternas, "Alicia Marina Vega", "665444789", "67890123Z");
+            psiquiatria.agregarSanitario(fserrano);
+            Empleado amarina = new Sanitarios(psiquiatria, consultasExternas, "Alicia Marina Vega", "665444789", "67890123Z");
             empleados.add(amarina);
-            psiquitria.agregarSanitario(amarina);
+            psiquiatria.agregarSanitario(amarina);
             
             // Consultas externas - Traumatología
             Empleado hbermejo = new Sanitarios(traumatologia, consultasExternas, "Héctor Bermejo Hernández", "601223587", "89012345B");
@@ -329,6 +322,22 @@ public class Hospital {
             Empleado mdominguez = new Sanitarios(null, consultasExternas, "Marcos Domínguez Moya", "615546456", "01234567D");
             empleados.add(mdominguez);
     
+    }
+    
+    public static void imprimirUnidades(){ //Para imprimir el listado de unidades
+        int index = 1;
+        for(Unidad unidad : unidades){
+            System.out.println("[" + index + "]" + " " + unidad.getNombreUnidad());
+            index++;
+        }
+    }
+    
+    public static void imprimirEspecialidades(){//Para imprimir el listado de especialidades
+        int index = 1;
+        for(Especialidad especialidad : especialidades){
+            System.out.println("[" + index + "]" + " " + especialidad.getNombreEspecialidad());
+            index++;
+        }
     }
     
 }

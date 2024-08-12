@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class GestionEmpleados extends Hospital {
             
-    public static void main(String[] args) {
+    public void iniciarMenu() {
         Scanner scanner = new Scanner(System.in);
         int option;
 
@@ -52,11 +52,10 @@ public class GestionEmpleados extends Hospital {
                     break;
                 case 3:
                     System.out.println("Calendario de citas'");
-                    
-                    break;
+
                 case 4:
                     System.out.println("Has elegido 'Asignar estudiante'");
-                    
+
                     break;
              
                 case 5:
@@ -84,17 +83,34 @@ public class GestionEmpleados extends Hospital {
         String dni = scanner.nextLine(); 
         
         System.out.println("SELECCIONA LA UNIDAD A LA QUE VA A SER ASIGNADO EL NUEVO EMPLEADO:");
-        //Aqui meter un for y un selector para elegir la unidad
-        
-        Empleado nuevoEmpleado = new Empleado(unidades.get(0), nombre, tel, dni);
-        nuevoEmpleado.comprobarNombre(nombre);
-        nuevoEmpleado.generarEmail(nombre);
+        imprimirUnidades();
+        Scanner ud = new Scanner(System.in);
+        int unidad = ud.nextInt();
                 
-        empleados.add(nuevoEmpleado);
-        
+        if(3 < unidad && unidad < 9){
+            System.out.println("INDIQUE A QUE EQUIPO SE VA A INCORPORAR EL NUEVO SANITARIO, MEDICINA O ENFERMERÍA:");
+            System.out.println("[1] Medicina" + "\n" + "[2] Enfermería");
+            Scanner md = new Scanner(System.in);
+            int equipo = md.nextInt();
+            if(equipo == 1){
+                System.out.println("SELECCIONE LA ESPECIALIDAD:");
+                imprimirEspecialidades();
+                Scanner esp = new Scanner(System.in);
+                int especialidad = esp.nextInt();
+                Empleado nuevoEmpleado = new Sanitarios(especialidades.get(especialidad - 1) ,unidades.get(unidad - 1), nombre, tel, dni);
+                empleados.add(nuevoEmpleado);
+            }else{
+                Empleado nuevoEmpleado = new Sanitarios(null ,unidades.get(unidad - 1), nombre, tel, dni);
+            }            
+        }else{
+            Empleado nuevoEmpleado = new Nosanitarios(unidades.get(unidad - 1), nombre, tel, dni);
+        }
 
-        //PENDIENTE --> Ver como distinguir entre empleado sanitario y no sanitario antes de darlo de alta, (new Sanitario) o (new Nosanitario)        
         
+        System.out.println("El usuario se ha dado de alta correctamente");
+           
+        //PENDIENTE --> PARECE QUE HE CONSEGUIDO QUE SE DEN DE ALTA LOS EMPLEADOS. aHORA QUIERO COMPROBAR QUE TODA
+        //LA INFO DE LOS EMPLEADOS ES CORRECTA (EMAIL, TELEFONO...) SOBRETODO VER QUE SE GENERA BIEN EL MAIL
     }
     
 

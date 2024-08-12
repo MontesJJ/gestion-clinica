@@ -16,8 +16,7 @@ public abstract class Persona
     {
         this.nombre = nombre;
         this.telefono = telefono;
-        this.dni = dni;
-        comprobarNombre(nombre);
+        this.dni = dni;        
     }
 
     public abstract String generarEmail(String nombre);
@@ -25,33 +24,35 @@ public abstract class Persona
     public void comprobarNombre(String nombre){        
         Scanner sc = new Scanner(System.in);
         boolean nombreCompleto = false;
+        String nombreC = nombre;
+        
         while(!nombreCompleto){
             int espacios = 0;
-            for(int i=0; i<nombre.length(); i++){
-                if(nombre.charAt(i) == ' '){ 
+            for(int i=0; i<nombreC.length(); i++){
+                if(nombreC.charAt(i) == ' '){ 
                     espacios++;
                 }
             }
             
             if(espacios == 0){
                 System.out.println("VUELVE A INTRODUCIR EL NOMBRE COMPLETO DE LA PERSONA INCLUYENDO SUS DOS APELLIDOS");
-                nombre = sc.nextLine();
+                nombreC = sc.nextLine();
             }else if(espacios == 1){
                 System.out.println("VUELVE A INTRODUCIR EL NOMBRE COMPLETO DE LA PERSONA INCLUYENDO SU SEGUNDO APELLIDO");
-                nombre = sc.nextLine();
+                nombreC = sc.nextLine();
             }else{
                 nombreCompleto = true;
-                this.nombre = nombre;
+                this.nombre = nombreC;
             }
         }               
     }
     
-    public void comprobarNombreCompleto(String nombre){
+   /* public void comprobarNombreCompleto(String nombre){
         Scanner sc = new Scanner(System.in);
         nombre = sc.nextLine();
         comprobarNombre(nombre);
     }
-    
+    */
     public String getNombre(){
         return nombre;
     }

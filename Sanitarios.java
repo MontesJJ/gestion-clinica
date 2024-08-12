@@ -21,28 +21,7 @@ public class Sanitarios extends Empleado
         super(unidadAsignada, nombre, telefono, dni);
         this.especialidadAsignada = especialidadAsignada;
         calendario = new Calendario();
-    }
-        
-    /**
-     * Constructor para dar de alta manualmente un nuevo usuario
-     */
-    public Sanitarios(Unidad unidadAsignada, String nombre, String telefono, String email)
-    {
-        super(unidadAsignada, nombre, telefono, email);
-        calendario = new Calendario();
-        if(unidadAsignada instanceof ConsultaExterna){
-            asignarEspecialidad();
-        }else{
-            especialidadAsignada = null;
-        }
-    }
-    
-    public Especialidad asignarEspecialidad(){
-        
-        //Aqui tenemos que crear un metodo que pregunte cual es la especialidad asignada preguntando al user por teclado
-        
-        return null;
-    }
+    }      
     
     public Unidad getUnidad(){
         return unidadAsignada;

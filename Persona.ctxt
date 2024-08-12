@@ -8,8 +8,7 @@ comment2.params=nombre
 comment2.target=java.lang.String\ generarEmail(java.lang.String)
 comment3.params=nombre
 comment3.target=void\ comprobarNombre(java.lang.String)
-comment4.params=nombre
-comment4.target=void\ comprobarNombreCompleto(java.lang.String)
-comment5.params=
-comment5.target=java.lang.String\ getNombre()
-numComments=6
+comment4.params=
+comment4.target=java.lang.String\ getNombre()
+comment4.text=\ public\ void\ comprobarNombreCompleto(String\ nombre){\r\n\ \ \ \ \ \ \ \ Scanner\ sc\ \=\ new\ Scanner(System.in);\r\n\ \ \ \ \ \ \ \ nombre\ \=\ sc.nextLine();\r\n\ \ \ \ \ \ \ \ comprobarNombre(nombre);\r\n\ \ \ \ }\r\n
+numComments=5
