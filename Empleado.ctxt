@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Empleado
 comment0.text=\r\n\ La\ clase\ empleado\ es\ una\ subclase\ de\ Persona,\ de\ la\ que\ heredan\ una\ serie\ de\ caracteristicas\ comunes\ (datos\ personales).\r\n\ Todos\ los\ empleados\ tienen\ que\ estar\ asignados\ a\ una\ unidad.\r\n
-comment1.params=unidadAsignada\ nombre\ telefono\ dni
-comment1.target=Empleado(Unidad,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=unidadAsignada\ nombre\ telefono\ dni\ horario
+comment1.target=Empleado(Unidad,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
 comment1.text=\r\n\ Constructor,\ asignamos\ la\ unidad\ y\ heredamos\ los\ datos\ personales\ de\ la\ clase\ Persona\r\n
 comment2.params=nombre
 comment2.target=java.lang.String\ generarEmail(java.lang.String)

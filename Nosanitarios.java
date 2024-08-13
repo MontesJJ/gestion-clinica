@@ -8,9 +8,9 @@ public class Nosanitarios extends Empleado
     /**
      * Constructor
      */
-    public Nosanitarios(Unidad unidadAsignada, String nombre, String telefono, String dni)
+    public Nosanitarios(Unidad unidadAsignada, String nombre, String telefono, String dni, int horario)
     {
-        super(unidadAsignada, nombre, telefono, dni);
+        super(unidadAsignada, nombre, telefono, dni, horario);
     }
 
 }

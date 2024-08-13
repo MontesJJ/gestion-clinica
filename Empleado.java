@@ -7,15 +7,17 @@ public class Empleado extends Persona
 {
     
     protected Unidad unidadAsignada;
+    private int horario;
 
     /**
      * Constructor, asignamos la unidad y heredamos los datos personales de la clase Persona
      */
-    public Empleado(Unidad unidadAsignada, String nombre, String telefono, String dni)
+    public Empleado(Unidad unidadAsignada, String nombre, String telefono, String dni, int horario)
     {
         super(nombre, telefono, dni);
         comprobarNombre(nombre);
         this.unidadAsignada = unidadAsignada;
+        this.horario = horario;
         email = generarEmail(this.nombre) + "@hospital.es";
     }
 

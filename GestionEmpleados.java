@@ -97,24 +97,21 @@ public class GestionEmpleados extends Hospital {
                 imprimirEspecialidades();
                 Scanner esp = new Scanner(System.in);
                 int especialidad = esp.nextInt();
-                Empleado nuevoEmpleado = new Sanitarios(especialidades.get(especialidad - 1) ,unidades.get(unidad - 1), nombre, tel, dni);
+                Empleado nuevoEmpleado = new Sanitarios(especialidades.get(especialidad - 1) ,unidades.get(unidad - 1), nombre, tel, dni, 1);
                 empleados.add(nuevoEmpleado);
             }else{
-                Empleado nuevoEmpleado = new Sanitarios(null ,unidades.get(unidad - 1), nombre, tel, dni);
+                Empleado nuevoEmpleado = new Sanitarios(null ,unidades.get(unidad - 1), nombre, tel, dni, 1);
                 empleados.add(nuevoEmpleado);
             }            
         }else{
-            Empleado nuevoEmpleado = new Nosanitarios(unidades.get(unidad - 1), nombre, tel, dni);
+            Empleado nuevoEmpleado = new Nosanitarios(unidades.get(unidad - 1), nombre, tel, dni, 1);
             empleados.add(nuevoEmpleado);
         }
 
         
         System.out.println("El empleado se ha dado de alta correctamente");
-        
-        System.out.println(empleados.get(empleados.size() - 1).getNombre() + ": " + empleados.get(empleados.size() - 1).getEmail() + " --> " + empleados.get(empleados.size() - 1).getUnidad().getNombreUnidad());
-           
-        //PENDIENTE --> PARECE QUE HE CONSEGUIDO QUE SE DEN DE ALTA LOS EMPLEADOS. aHORA QUIERO COMPROBAR QUE TODA
-        //LA INFO DE LOS EMPLEADOS ES CORRECTA (EMAIL, TELEFONO...) SOBRETODO VER QUE SE GENERA BIEN EL MAIL
+                   
+        //PENDIENTE --> Meter el horario del trabajador. Probar a imprimir informacion del horario desde aqui una vez se de alta un nuevo empleado con su horario asignado
     }
     
 

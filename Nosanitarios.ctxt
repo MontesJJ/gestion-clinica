@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Nosanitarios
 comment0.text=\r\n\ Los\ empleados\ no\ sanitarios,\ al\ igual\ que\ los\ sanitarios,\ estan\ asignados\ a\ una\ unidad.\r\n
-comment1.params=unidadAsignada\ nombre\ telefono\ dni
-comment1.target=Nosanitarios(Unidad,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=unidadAsignada\ nombre\ telefono\ dni\ horario
+comment1.target=Nosanitarios(Unidad,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
 comment1.text=\r\n\ Constructor\r\n
 numComments=2

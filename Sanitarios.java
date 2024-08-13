@@ -16,9 +16,9 @@ public class Sanitarios extends Empleado
     /**
      * Constructor para la clase Iniciar, donde ya asignamos directamente la especialidad
      */
-    public Sanitarios(Especialidad especialidadAsignada,Unidad unidadAsignada, String nombre, String telefono, String dni)
+    public Sanitarios(Especialidad especialidadAsignada,Unidad unidadAsignada, String nombre, String telefono, String dni, int horario)
     {
-        super(unidadAsignada, nombre, telefono, dni);
+        super(unidadAsignada, nombre, telefono, dni, horario);
         this.especialidadAsignada = especialidadAsignada;
         calendario = new Calendario();
     }      
