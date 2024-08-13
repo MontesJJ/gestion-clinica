@@ -14,13 +14,13 @@ public class Empleado extends Persona
     public Empleado(Unidad unidadAsignada, String nombre, String telefono, String dni)
     {
         super(nombre, telefono, dni);
+        comprobarNombre(nombre);
         this.unidadAsignada = unidadAsignada;
-        email = generarEmail(nombre) + "@hospital.es";
+        email = generarEmail(this.nombre) + "@hospital.es";
     }
 
     //Esta función la voy a usar para generar el correo del nuevo empleado, cogiendo la primera letra de su nombre y su primer apellido.
     public String generarEmail(String nombre){
-        comprobarNombre(nombre);
         String alias="";
         int inicioApellido = 0;
         int finApellido = 0;
@@ -41,6 +41,10 @@ public class Empleado extends Persona
         alias = Character.toLowerCase(nombre.charAt(0)) + nombre.substring(inicioApellido, finApellido).toLowerCase();
                 
         return alias;        
+    }
+    
+    public Unidad getUnidad(){
+        return unidadAsignada;
     }
     
 }

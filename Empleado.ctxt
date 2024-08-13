@@ -6,4 +6,6 @@ comment1.target=Empleado(Unidad,\ java.lang.String,\ java.lang.String,\ java.lan
 comment1.text=\r\n\ Constructor,\ asignamos\ la\ unidad\ y\ heredamos\ los\ datos\ personales\ de\ la\ clase\ Persona\r\n
 comment2.params=nombre
 comment2.target=java.lang.String\ generarEmail(java.lang.String)
-numComments=3
+comment3.params=
+comment3.target=Unidad\ getUnidad()
+numComments=4

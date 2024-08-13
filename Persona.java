@@ -4,7 +4,7 @@ import java.util.Scanner;
  */
 public abstract class Persona
 {
-    private String nombre;
+    protected String nombre;
     private String telefono;
     protected String email;
     private String dni;
@@ -14,9 +14,9 @@ public abstract class Persona
      */
     public Persona(String nombre, String telefono, String dni)
     {
-        this.nombre = nombre;
         this.telefono = telefono;
-        this.dni = dni;        
+        this.dni = dni;
+        this.nombre = nombre;
     }
 
     public abstract String generarEmail(String nombre);
@@ -44,17 +44,23 @@ public abstract class Persona
                 nombreCompleto = true;
                 this.nombre = nombreC;
             }
-        }               
+        }
     }
-    
-   /* public void comprobarNombreCompleto(String nombre){
-        Scanner sc = new Scanner(System.in);
-        nombre = sc.nextLine();
-        comprobarNombre(nombre);
-    }
-    */
+
     public String getNombre(){
         return nombre;
+    }
+    
+    public String getEmail(){
+        return email;
+    }
+    
+    public String getTelefono(){
+        return telefono;
+    }
+    
+    public String getDNI(){
+        return dni;
     }
     
 }

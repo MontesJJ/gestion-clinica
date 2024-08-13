@@ -87,7 +87,7 @@ public class GestionEmpleados extends Hospital {
         Scanner ud = new Scanner(System.in);
         int unidad = ud.nextInt();
                 
-        if(3 < unidad && unidad < 9){
+        if(3 < unidad && unidad < 9){            
             System.out.println("INDIQUE A QUE EQUIPO SE VA A INCORPORAR EL NUEVO SANITARIO, MEDICINA O ENFERMERÍA:");
             System.out.println("[1] Medicina" + "\n" + "[2] Enfermería");
             Scanner md = new Scanner(System.in);
@@ -101,13 +101,17 @@ public class GestionEmpleados extends Hospital {
                 empleados.add(nuevoEmpleado);
             }else{
                 Empleado nuevoEmpleado = new Sanitarios(null ,unidades.get(unidad - 1), nombre, tel, dni);
+                empleados.add(nuevoEmpleado);
             }            
         }else{
             Empleado nuevoEmpleado = new Nosanitarios(unidades.get(unidad - 1), nombre, tel, dni);
+            empleados.add(nuevoEmpleado);
         }
 
         
-        System.out.println("El usuario se ha dado de alta correctamente");
+        System.out.println("El empleado se ha dado de alta correctamente");
+        
+        System.out.println(empleados.get(empleados.size() - 1).getNombre() + ": " + empleados.get(empleados.size() - 1).getEmail() + " --> " + empleados.get(empleados.size() - 1).getUnidad().getNombreUnidad());
            
         //PENDIENTE --> PARECE QUE HE CONSEGUIDO QUE SE DEN DE ALTA LOS EMPLEADOS. aHORA QUIERO COMPROBAR QUE TODA
         //LA INFO DE LOS EMPLEADOS ES CORRECTA (EMAIL, TELEFONO...) SOBRETODO VER QUE SE GENERA BIEN EL MAIL
