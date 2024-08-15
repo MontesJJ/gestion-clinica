@@ -31,6 +31,10 @@ public class Sanitarios extends Empleado
         calendario.nuevaCita(paciente, getUnidad());
     }
     
+    public Calendario getCalendario(){
+        return calendario;
+    }
+    
     public void imprimirCitas(){
         calendario.imprimirCitas();
     }

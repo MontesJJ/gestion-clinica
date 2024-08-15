@@ -30,5 +30,9 @@ public class Especialidad
             index++;
         }
     }
+    
+    public ArrayList getSanitariosAsignados(){
+        return sanitariosAsignados;
+    }
 
 }

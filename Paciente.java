@@ -9,8 +9,9 @@ import java.util.Scanner;
  */
 public class Paciente extends Persona {
     
+    private Calendario calendario;
     private ArrayList<Expediente> expediente;
-    private HashMap<GregorianCalendar, Unidad> citas;
+    private ArrayList<Cita> citas;
     private boolean seguroPrivado;
 
     /**
@@ -20,7 +21,7 @@ public class Paciente extends Persona {
         super(nombre, telefono, dni);
         this.email = email;
         this.seguroPrivado = seguro;
-        this.citas = new HashMap<>();
+        this.citas = new ArrayList<>();
         this.expediente = new ArrayList<>(); 
     }
     
@@ -31,8 +32,8 @@ public class Paciente extends Persona {
         return email;
     }
     
-    public void agregarCita(GregorianCalendar calendario, Unidad unidad){
-        citas.put(calendario, unidad);
+    public void agregarCita(Cita cita){
+        citas.add(cita);
     }
 
     

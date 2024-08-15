@@ -396,7 +396,7 @@ public class Hospital {
             
             Paciente jgomez = new Paciente("Juan Gómez Pérez", "612345678", "jgomez@correo.com", "12345678A", true);
             pacientes.add(jgomez);
-            Paciente dlara = new Paciente("diana Lara Fernández", "623456789", "mlara@correo.com", "23456789B", true);
+            Paciente dlara = new Paciente("Diana Lara Fernández", "623456789", "mlara@correo.com", "23456789B", true);
             pacientes.add(dlara);
             Paciente lramos = new Paciente("Luis Ramos García", "634567890", "lramos@correo.com", "34567890C", true);
             pacientes.add(lramos);

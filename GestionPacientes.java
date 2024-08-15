@@ -1,4 +1,12 @@
-import java.util.Scanner; 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Esta parte de la aplicacion se centra en la gestión de los sanitarios. Las diferentes opciones se muestran a través de un menú.
@@ -47,7 +55,7 @@ public class GestionPacientes extends Hospital {
                     break;
                 case 2:
                     System.out.println('\u000C');
-                    System.out.println("INDICA EL NOMBRE DEL MEDICO");
+                    crearCita();
 
                     
                     System.out.println("Pulsa intro para volver...");                    
@@ -104,7 +112,7 @@ public class GestionPacientes extends Hospital {
         Paciente nuevoPaciente = new Paciente(nombre, tel, email, dni, seguro);
         pacientes.add(nuevoPaciente);
         
-         System.out.println("El paciente se ha dado de alta correctamente" + "\n");
+        System.out.println("El paciente se ha dado de alta correctamente" + "\n");
         
     }
     
@@ -115,5 +123,57 @@ public class GestionPacientes extends Hospital {
             index++;
         }
         System.out.println("\n");
+    }
+    
+    public void crearCita(){
+        System.out.println("SELECCIONE EL PACIENTE PARA EL QUE SE VA A DAR DE ALTA LA CITA:");
+        imprimirListadoPacientes();
+        Scanner p = new Scanner(System.in);
+        Paciente paciente = pacientes.get(p.nextInt() - 1);
+        
+        System.out.println("SELECCIONE LA UNIDAD EN LA QUE DESEA RESERVAR CITA:");
+        System.out.println("[1] Pruebas médicas");
+        System.out.println("[2] Unidad médica especializada - Diabetes");
+        System.out.println("[3] Unidad médica especializada - Cardiología");
+        System.out.println("[4] Consultas externas");
+        Scanner ud = new Scanner(System.in);
+        int unidad = ud.nextInt();
+        
+        Unidad unidadSeleccionada;
+        Especialidad especialidad;
+        if(unidad == 1){
+            unidadSeleccionada = unidades.get(2);
+            especialidad = null;
+        }else if(unidad == 2){
+            unidadSeleccionada = unidades.get(3);
+            especialidad = null;
+        }else if(unidad == 3){
+            unidadSeleccionada = unidades.get(4);
+            especialidad = null;
+        }else{
+            unidadSeleccionada = unidades.get(5);
+            System.out.println("SELECCIONE LA ESPECIALIDAD:");
+            imprimirEspecialidades();
+            Scanner sp = new Scanner(System.in);
+            int espe = sp.nextInt();
+            especialidad = especialidades.get(espe - 1);
+            
+            System.out.println("SELECCIONE AL ESPECIALISTA DE " + especialidad.getNombreEspecialidad().toUpperCase() + ":");
+            especialidad.printSanitariosAsignados();
+            Scanner md = new Scanner(System.in);
+            Sanitarios sanitario = (Sanitarios) especialidad.getSanitariosAsignados().get(md.nextInt() - 1);
+            sanitario.crearCita(paciente);
+            
+            ArrayList<GregorianCalendar> citas = sanitario.getCalendario().getCitas();
+            GregorianCalendar fecha = citas.get(citas.size() - 1);
+            
+            Cita cita = new Cita(fecha, unidadSeleccionada, especialidad);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            System.out.println("La cita se ha generado correctamente el " + sdf.format(fecha.getTime()) + " en " + unidadSeleccionada.getNombreUnidad() + ", en el departamento de " + especialidad.getNombreEspecialidad());
+        }
+        
+        
+        
+        System.out.println("La cita se ha generado correctamente el 15/08/2024 en " + unidadSeleccionada.getNombreUnidad() + ", en el departamento de " + especialidad.getNombreEspecialidad());
     }
 }

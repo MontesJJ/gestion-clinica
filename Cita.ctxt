@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Cita
+comment1.params=fecha\ unidad\ especialidad
+comment1.target=Cita(java.util.GregorianCalendar,\ Unidad,\ Especialidad)
+comment2.params=
+comment2.target=java.util.Calendar\ getFecha()
+comment3.params=
+comment3.target=Unidad\ getUnidad()
+comment4.params=
+comment4.target=Especialidad\ getEspecialidad()
+numComments=5

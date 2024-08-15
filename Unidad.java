@@ -8,7 +8,8 @@ public class Unidad
     
     private String nombreUnidad;
     private ArrayList<Empleado> empleadosAsignados;
-
+    private Calendario calendario;
+    
     /**
      * Constructor
      */

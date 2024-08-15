@@ -103,13 +103,6 @@ public class Calendario
             ArrayList<GregorianCalendar> keys = new ArrayList<>(cits.keySet());
             boolean hueco = true;
             int index = 0;
-            /*while(hueco && index<citas.size()){
-                if(citas.get(index).get(Calendar.DAY_OF_MONTH) == dia && citas.get(index).get(Calendar.HOUR_OF_DAY) == hora){
-                    hueco = false;
-                }else{
-                    index++;
-                }
-            }*/
             
             while(hueco && index<cits.size()){
                 if(keys.get(index).get(Calendar.DAY_OF_MONTH) == dia && keys.get(index).get(Calendar.HOUR_OF_DAY) == hora){
@@ -131,9 +124,10 @@ public class Calendario
             if(hueco){
                 citas.add(new GregorianCalendar(calendario.get(Calendar.YEAR), mes, dia, hora, 0, 0));
                 cits.put(new GregorianCalendar(calendario.get(Calendar.YEAR), mes, dia, hora, 0, 0), paciente);
-                paciente.agregarCita(new GregorianCalendar(calendario.get(Calendar.YEAR), mes, dia, hora, 0 ,0), unidad);
+                //paciente.agregarCita(new GregorianCalendar(calendario.get(Calendar.YEAR), mes, dia, hora, 0 ,0), unidad); // OJOOOOOOOOO
                 citaGuardada = true;
-                System.out.println("La cita se ha generado correctamente " + citas.get((citas.size()-1)).getTime());
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                System.out.println("La cita se ha generado correctamente " + sdf.format(citas.get((citas.size()-1)).getTime()));
             }else{
                 System.out.println("No hay hueco disponible para la fecha y hora selccionadas, ¿Desea seleccionar otra?[Y/N]");
                 Scanner dt = new Scanner(System.in);
@@ -153,7 +147,12 @@ public class Calendario
         }
     }
     
+    public String getFechaFormateada() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        return sdf.format(calendario.getTime());
+    }
     
-    
-    
+    public ArrayList getCitas(){
+        return citas;
+    }
 }
