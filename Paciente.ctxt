@@ -1,11 +1,15 @@
 #BlueJ class context
 comment0.target=Paciente
-comment0.text=\r\n\ El\ paciente,\ adem\u00E1s\ de\ los\ atributos\ heredados\ de\ persona,\ va\ a\ tener\ otros\ como\ ingresos,\ seguros,\ pagos...\r\n\ Tambien\ va\ a\ contar\ con\ un\ arraylist\ de\ objetos\ Expediente,\ donde\ se\ van\ a\ recoger\ todas\ las\ entradas\ del\ expediente.\r\n
-comment1.params=nombre\ telefono\ email\ dni
-comment1.target=Paciente(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment0.text=\r\n\ El\ paciente,\ adem\u00E1s\ de\ los\ atributos\ heredados\ de\ persona,\ va\ a\ tener\ otros\ como\ ingresos,\ seguros,\ pagos...\r\n\ Tambi\u00E9n\ va\ a\ contar\ con\ un\ ArrayList\ de\ objetos\ Expediente,\ donde\ se\ van\ a\ recoger\ todas\ las\ entradas\ del\ expediente.\r\n
+comment1.params=nombre\ telefono\ email\ dni\ seguro
+comment1.target=Paciente(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ boolean)
 comment1.text=\r\n\ Constructor\r\n
 comment2.params=nombre
 comment2.target=java.lang.String\ generarEmail(java.lang.String)
 comment3.params=calendario\ unidad
 comment3.target=void\ agregarCita(java.util.GregorianCalendar,\ Unidad)
-numComments=4
+comment4.params=textoEntrada\ unidad
+comment4.target=void\ agregarEntradaExpediente(java.lang.String,\ Unidad)
+comment5.params=
+comment5.target=void\ mostrarExpediente()
+numComments=6

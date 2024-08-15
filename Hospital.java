@@ -17,6 +17,7 @@ public class Hospital {
     protected static ArrayList<Empleado> empleados;
     protected static ArrayList<Especialidad> especialidades;
     protected static ArrayList<Estudiante> estudiantes;
+    protected static ArrayList<Paciente> pacientes;
     protected static HashMap<Integer, String> horarios;
     
     public static void main(String[] args) {
@@ -24,6 +25,7 @@ public class Hospital {
         empleados = new ArrayList<>();
         especialidades = new ArrayList<>();
         estudiantes = new ArrayList<>();
+        pacientes = new ArrayList<>();
         horarios = new HashMap<>();
         iniciar();
         Scanner scanner = new Scanner(System.in); 
@@ -71,8 +73,8 @@ public class Hospital {
                 case 3:
                     System.out.println("Has elegido 'Gestión Empleados'");
                     System.out.print('\u000C');
-                    String[] argEmpleados = {};
-                    GestionMedicos.main(argEmpleados);
+                    gestionPacientes = new GestionPacientes();
+                    gestionPacientes.iniciarMenu();
 
                     break;
                 case 4:
@@ -380,7 +382,6 @@ public class Hospital {
             estudiantes.add(emartin);
             Estudiante pcortes = new Estudiante("Pablo Cortés Jiménez", "689012345", "01234567J", formacion, rmolina, 2);
             estudiantes.add(pcortes);
-
             
             //Horarios
             horarios.put(1, "De lunes a viernes, desde las 08:00 hasta las 16:00");//Horario 1
@@ -389,6 +390,40 @@ public class Hospital {
             horarios.put(4, "De lunes a viernes, desde las 00:00 hasta las 08:00");//Horario 4
             horarios.put(5, "De sábado a domingo, desde las 00:00 hasta las 12:00");//Horario 5
             horarios.put(6, "De sábado a domingo, desde las 12:00 hasta las 00:00");//Horario 6
+            
+            //Pacientes
+            Paciente fmoran = new Paciente("Francisco Morán Santos", "654784410", "fmoran@correo.com", "86114455I", true);
+            
+            Paciente jgomez = new Paciente("Juan Gómez Pérez", "612345678", "jgomez@correo.com", "12345678A", true);
+            pacientes.add(jgomez);
+            Paciente dlara = new Paciente("diana Lara Fernández", "623456789", "mlara@correo.com", "23456789B", true);
+            pacientes.add(dlara);
+            Paciente lramos = new Paciente("Luis Ramos García", "634567890", "lramos@correo.com", "34567890C", true);
+            pacientes.add(lramos);
+            Paciente aspinoza = new Paciente("Ana Spinoza Torres", "645678901", "aspinoza@correo.com", "45678901D", true);
+            pacientes.add(aspinoza);
+            Paciente pmartinez = new Paciente("Pedro Martínez Ruiz", "656789012", "jmartinez@correo.com", "56789012E", true);
+            pacientes.add(pmartinez);
+            Paciente mrape = new Paciente("Marta Rape Sánchez", "667890123", "mlopez@correo.com", "67890123F", true);
+            pacientes.add(mrape);
+            Paciente rfernandez = new Paciente("Roberto Fernández Díaz", "678901234", "rfernandez@correo.com", "78901234G", true);
+            pacientes.add(rfernandez);
+            Paciente pcastro = new Paciente("Paula Castro Mendez", "689012345", "pcastro@correo.com", "89012345H", false);
+            pacientes.add(pcastro);
+            Paciente amero = new Paciente("Alberto Mero Rodríguez", "690123456", "agonzalez@correo.com", "90123456I", false);
+            pacientes.add(amero);
+            Paciente rjimenez = new Paciente("Rocío Jiménez Martín", "601234567", "rjimenez@correo.com", "01234567J", false);
+            pacientes.add(rjimenez);
+            Paciente dtorres = new Paciente("Daniel Torres López", "612345679", "dtorres@correo.com", "12345678K", false);
+            pacientes.add(dtorres);
+            Paciente vleon = new Paciente("Victoria León Gil", "623456780", "vleon@correo.com", "23456789L", false);
+            pacientes.add(vleon);
+            Paciente mplancha = new Paciente("Miguel Plancha Navas", "634567891", "mgarcia@correo.com", "34567890M", false);
+            pacientes.add(mplancha);
+            Paciente scortes = new Paciente("Sofía Cortés Ramírez", "645678902", "scortes@correo.com", "45678901N", false);
+            pacientes.add(scortes);
+            Paciente hmartin = new Paciente("Hugo Martín Serrano", "656789013", "hmartin@correo.com", "56789012O", false);
+
     
     }
     
