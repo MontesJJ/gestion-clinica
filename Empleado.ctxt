@@ -8,4 +8,6 @@ comment2.params=nombre
 comment2.target=java.lang.String\ generarEmail(java.lang.String)
 comment3.params=
 comment3.target=Unidad\ getUnidad()
-numComments=4
+comment4.params=
+comment4.target=int\ getHorario()
+numComments=5

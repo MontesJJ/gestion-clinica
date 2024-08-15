@@ -20,6 +20,7 @@ public class Hospital {
         unidades = new ArrayList<>();
         empleados = new ArrayList<>();
         especialidades = new ArrayList<>();
+        horarios = new HashMap<>();
         iniciar();
         Scanner scanner = new Scanner(System.in); 
         int option; 

@@ -49,4 +49,8 @@ public class Empleado extends Persona
         return unidadAsignada;
     }
     
+    public int getHorario(){
+        return horario;
+    }
+    
 }
