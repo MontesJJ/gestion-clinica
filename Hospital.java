@@ -1,6 +1,7 @@
 import java.util.Scanner; 
 import java.util.ArrayList;
 import java.util.HashMap;
+
 /**
  * Inicio de la aplicación. La clase Hospital va a contar con un ArrayList para cada una de las clases (Empleado, Estudiante, Paciente, Unidad, Habitación...).
  * Creamos un metodo "iniciar" para que la aplicacion arranque con datos.
@@ -9,17 +10,20 @@ import java.util.HashMap;
 public class Hospital {
     
     private static GestionEmpleados gestionEmpleados;
+    private static GestionEstudiantes gestionEstudiantes;
     private static GestionMedicos gestionMedicos;
     private static GestionPacientes gestionPacientes;
     protected static ArrayList<Unidad> unidades;
     protected static ArrayList<Empleado> empleados;
     protected static ArrayList<Especialidad> especialidades;
+    protected static ArrayList<Estudiante> estudiantes;
     protected static HashMap<Integer, String> horarios;
     
     public static void main(String[] args) {
         unidades = new ArrayList<>();
         empleados = new ArrayList<>();
         especialidades = new ArrayList<>();
+        estudiantes = new ArrayList<>();
         horarios = new HashMap<>();
         iniciar();
         Scanner scanner = new Scanner(System.in); 
@@ -31,8 +35,8 @@ public class Hospital {
             System.out.println("|          GESTIÓN HOSPITAL          |");
             System.out.println("+------------------------------------+");
             System.out.println("| [1]  Gestión Empleados             |");
-            System.out.println("| [2]  Gestión Pacientes             |");
-            System.out.println("| [3]  Gestión Estudiantes           |");
+            System.out.println("| [2]  Gestión Estudiantes           |");
+            System.out.println("| [3]  Gestión Pacientes             |");
             System.out.println("| [4]  Habitaciones                  |");
             System.out.println("| [5]  Administración                |");
             System.out.println("| [6]  Mantenimiento                 |");
@@ -58,10 +62,10 @@ public class Hospital {
                     
                     break;
                 case 2:
-                    System.out.println("Has elegido 'Gestión Pacientes'");
+                    System.out.println("Has elegido 'Gestión Estudiantes'");
                     System.out.print('\u000C');
-                    gestionPacientes = new GestionPacientes();
-                    gestionPacientes.iniciarMenu();
+                    gestionEstudiantes = new GestionEstudiantes();
+                    gestionEstudiantes.iniciarMenu();
                     
                     break;
                 case 3:
@@ -320,8 +324,10 @@ public class Hospital {
             // Consultas externas - Traumatología
             Empleado hbermejo = new Sanitarios(traumatologia, consultasExternas, "Héctor Bermejo Hernández", "601223587", "89012345B", 1);
             empleados.add(hbermejo);
+            traumatologia.agregarSanitario(hbermejo);
             Empleado ogutierrez = new Sanitarios(traumatologia, consultasExternas, "Olga Gutiérrez Sanz", "632258852", "90123456C", 2);
             empleados.add(ogutierrez);
+            traumatologia.agregarSanitario(ogutierrez);
 
             //Alta enfermeros
             Empleado mreyes = new Sanitarios(null, consultasExternas, "María Reyes Sánchez", "658678458", "73299333K", 1);
@@ -344,10 +350,37 @@ public class Hospital {
             empleados.add(yramirez);
             Empleado rmolina = new Sanitarios(null, consultasExternas, "Ricardo Molina Sánchez", "632554419", "78901234A", 4);
             empleados.add(rmolina);
-            Empleado mdominguez = new Sanitarios(null, consultasExternas, "Marcos Domínguez Moya", "615546456", "01234567D", 5);
+            
+            //Unidad de formación
+            Empleado mdominguez = new Sanitarios(null, formacion, "Marcos Domínguez Moya", "615546456", "01234567D", 1);
             empleados.add(mdominguez);
-            Empleado ldominguez = new Sanitarios(null, consultasExternas, "Lucas Domínguez Moya", "675546477", "71234568N", 5);
+            Empleado ldominguez = new Sanitarios(medicinaGeneral, formacion, "Lucas Domínguez Moya", "675546477", "71234568N", 2);
             empleados.add(ldominguez);
+            
+            //Estudiantes
+            Estudiante rmarcos = new Estudiante("Ramón Marcos Pam", "648845520", "89445725L", formacion, fmora, 1);
+            estudiantes.add(rmarcos);
+            Estudiante jgarcia = new Estudiante("Juan García López", "654123987", "12345678A", formacion, sblanco, 1);
+            estudiantes.add(jgarcia);
+            Estudiante aperez = new Estudiante("Ana Pérez Sánchez", "612345678", "23456789B", formacion, jpardo, 1);
+            estudiantes.add(aperez);
+            Estudiante trodriguez = new Estudiante("Tito Rodríguez Díaz", "678912345", "34567890C", formacion, lmarin, 1);
+            estudiantes.add(trodriguez);
+            Estudiante sfernandez = new Estudiante("Sara Fernández Gómez", "623456789", "45678901D", formacion, ogutierrez, 1);
+            estudiantes.add(sfernandez);
+            Estudiante jmartinez = new Estudiante("Jorge Martínez Ruiz", "634567890", "56789012E", formacion, vfernandez, 2);
+            estudiantes.add(jmartinez);
+            Estudiante llopez = new Estudiante("Laura López Torres", "645678901", "67890123F", formacion, escobar, 2);
+            estudiantes.add(llopez);
+            Estudiante ipascual = new Estudiante("Isabel Pascual Vázquez", "656789012", "78901234G", formacion, saragon, 2);
+            estudiantes.add(ipascual);
+            Estudiante agonzalez = new Estudiante("Andrés González Martín", "667890123", "89012345H", formacion, rmendez, 2);
+            estudiantes.add(agonzalez);
+            Estudiante emartin = new Estudiante("Elena Martín Pérez", "678901234", "90123456I", formacion, yramirez, 2);
+            estudiantes.add(emartin);
+            Estudiante pcortes = new Estudiante("Pablo Cortés Jiménez", "689012345", "01234567J", formacion, rmolina, 2);
+            estudiantes.add(pcortes);
+
             
             //Horarios
             horarios.put(1, "De lunes a viernes, desde las 08:00 hasta las 16:00");//Horario 1

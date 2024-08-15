@@ -1,9 +1,11 @@
 #BlueJ class context
 comment0.target=Estudiante
 comment0.text=\r\n\ El\ estudiante\ se\ distingue\ de\ los\ otros\ objeto\ persona\ en\ que\ tiene\ una\ relacion\ de\ dependencia\ con\ el\ miembro\ del\ personal\ medico\ asignado\r\n
-comment1.params=nombre\ telefono\ dni
-comment1.target=Estudiante(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.params=nombre\ telefono\ dni\ unidad\ sanitario\ horario
+comment1.target=Estudiante(java.lang.String,\ java.lang.String,\ java.lang.String,\ Unidad,\ Empleado,\ int)
 comment1.text=\r\n\ Constructor\r\n
 comment2.params=nombre
 comment2.target=java.lang.String\ generarEmail(java.lang.String)
-numComments=3
+comment3.params=
+comment3.target=Empleado\ getSanitarioAsignado()
+numComments=4

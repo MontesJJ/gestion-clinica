@@ -1,17 +1,25 @@
+import java.util.ArrayList;
 
 /**
  * El estudiante se distingue de los otros objeto persona en que tiene una relacion de dependencia con el miembro del personal medico asignado
  */
 public class Estudiante extends Persona
 {
-
-
+    
+    private Unidad unidadAsignada;
+    private Empleado sanitarioAsignado;
+    private int horario;
+    
     /**
      * Constructor
      */
-    public Estudiante(String nombre, String telefono, String dni)
+    public Estudiante(String nombre, String telefono, String dni, Unidad unidad, Empleado sanitario, int horario)
     {
         super(nombre, telefono, dni);
+        comprobarNombre(nombre);
+        unidadAsignada = unidad;
+        sanitarioAsignado = sanitario;
+        this.horario = horario;
         email = generarEmail(nombre) + "@alumnos.hospital.es";
     }
     
@@ -37,6 +45,10 @@ public class Estudiante extends Persona
         alias = Character.toLowerCase(nombre.charAt(0)) + nombre.substring(inicioApellido, finApellido).toLowerCase();
                 
         return alias;        
+    }
+    
+    public Empleado getSanitarioAsignado(){
+        return sanitarioAsignado;
     }
     
 }

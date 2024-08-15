@@ -53,4 +53,8 @@ public class Empleado extends Persona
         return horario;
     }
     
+    public String getNombreEmpleado(){
+        return nombre;
+    }
+    
 }

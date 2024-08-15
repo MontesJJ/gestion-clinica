@@ -101,6 +101,7 @@ public class GestionEmpleados extends Hospital {
                 int horario = seleccionarHorario(unidad);
                 Empleado nuevoEmpleado = new Sanitarios(especialidades.get(especialidad - 1) ,unidades.get(unidad - 1), nombre, tel, dni, horario);
                 empleados.add(nuevoEmpleado);
+                especialidades.get(especialidad).agregarSanitario(nuevoEmpleado);
             }else{
                 int horario = seleccionarHorario(unidad);
                 Empleado nuevoEmpleado = new Sanitarios(null ,unidades.get(unidad - 1), nombre, tel, dni, horario);
@@ -138,7 +139,7 @@ public class GestionEmpleados extends Hospital {
             System.out.println("[1] Entresemana" + "\n" + "[2] Fines de semana" );
             Scanner dia = new Scanner(System.in);
             if(dia.nextInt() == 1){
-                System.out.println("SELECCIONE EL TURNO DE TRABAJO DEL EMPLEADO;");
+                System.out.println("SELECCIONE EL TURNO DE TRABAJO DEL EMPLEADO:");
                 System.out.println("[1] Mañana" + "\n" + "[2] Tarde" + "\n" + "[3] Noche");
                 Scanner tur = new Scanner(System.in);
                 int turno = tur.nextInt();

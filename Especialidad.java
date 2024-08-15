@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Especialidad
 {
     private String nombreEspecialidad;
-    private ArrayList<Empleado> sanitariosAsignados;
+    protected ArrayList<Empleado> sanitariosAsignados;
     /**
      * Constructor
      */
@@ -24,8 +24,10 @@ public class Especialidad
     }
     
     public void printSanitariosAsignados(){
+        int index = 1;
         for(Empleado sanitario : sanitariosAsignados){
-            System.out.println(sanitario);
+            System.out.println("[" + index + "] " + sanitario.getNombreEmpleado());
+            index++;
         }
     }
 

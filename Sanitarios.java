@@ -34,7 +34,13 @@ public class Sanitarios extends Empleado
     public void imprimirCitas(){
         calendario.imprimirCitas();
     }
-
     
+    public String getNombreSanitario(){
+        return nombre;
+    }
+    
+    public Especialidad getEspecialidad(){
+        return especialidadAsignada;
+    }
     
 }
