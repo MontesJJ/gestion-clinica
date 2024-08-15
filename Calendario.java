@@ -164,10 +164,17 @@ public class Calendario
     }
 
     
-    public void imprimirCitas(){
+    public void imprimirCitas() {
+        if (cits.isEmpty()) {
+            System.out.println("No hay citas programadas.");
+            return;
+        }
+    
+        int index = 1;
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        for(Map.Entry<GregorianCalendar, Paciente> citas : cits.entrySet()){
-            System.out.println(citas.getValue().getNombre() + " " + sdf.format(citas.getKey().getTime()));
+        for (Map.Entry<GregorianCalendar, Paciente> cita : cits.entrySet()) {
+            System.out.println("[" + index + "] " + cita.getValue().getNombre() + " " + sdf.format(cita.getKey().getTime()));
+            index++;
         }
     }
     
@@ -176,7 +183,11 @@ public class Calendario
         return sdf.format(calendario.getTime());
     }
     
-    public ArrayList getCitas(){
+    public ArrayList<GregorianCalendar> getCitas(){
         return citas;
+    }
+    
+    public HashMap<GregorianCalendar, Paciente> getCits(){
+        return cits;
     }
 }

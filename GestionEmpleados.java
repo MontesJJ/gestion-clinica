@@ -1,5 +1,12 @@
-import java.util.Scanner; 
-import java.util.ArrayList; 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map; 
 /**
  * Esta parte de la aplicacion se muestan las diferentes acciones que se pueden llevar a cabo con los empleados.
  */
@@ -175,7 +182,6 @@ public class GestionEmpleados extends Hospital {
         return horario;
     }
     
-    //Tengo que retocar esta clase para que formatee bien la información que imprime
     public void imprimirCitas(){
         ArrayList<Sanitarios> sanitarios = new ArrayList<>();
         for(Empleado empleado : empleados){
@@ -263,6 +269,91 @@ public class GestionEmpleados extends Hospital {
     }
     
     public void modificarCitas(){
+        ArrayList<Sanitarios> sanitarios = new ArrayList<>();
+        for(Empleado empleado : empleados){
+            if(empleado instanceof Sanitarios){
+                Sanitarios sanitario = (Sanitarios) empleado;
+                sanitarios.add(sanitario);
+            }
+        }
+        
+        System.out.println("SELECCIONA EL EMPLEADO PARA EL QUE SE VA A MODIFICAR UNA CITA:");
+        int index = 1;
+        for(Sanitarios sanitario : sanitarios){
+            if(sanitario.getEspecialidad() != null){
+                System.out.println("[" + index + "] " + sanitario.getNombre());
+            }
+            index++;
+        }
+                
+        /*Scanner sn = new Scanner(System.in);
+        sanitarios.get(sn.nextInt() - 1).getCalendario().imprimirCitas();
+        
+        int seleccion = sn.nextInt() - 1;
+        Calendario calendario = sanitarios.get(seleccion).getCalendario();
+        System.out.println("SELECCIONA LA CITA QUE DESEAS MODIFICAR:");
+        */
+        Scanner sn = new Scanner(System.in);
+        int seleccion = sn.nextInt() - 1;
+        Calendario calendario = sanitarios.get(seleccion).getCalendario();
+        
+        if(calendario.getCitas().isEmpty()){
+            System.out.println("No hay citas disponibles para modificar.");
+        }else{
+            System.out.println("SELECCIONA LA CITA QUE DESEAS MODIFICAR:");
+            calendario.imprimirCitas();
+            int citaModificar = sn.nextInt() - 1;
+
+            if(citaModificar < 0 || citaModificar >= calendario.getCitas().size()){
+                System.out.println("Selección de cita no válida.");
+                return;
+            }
+
+            GregorianCalendar fechaOriginal = calendario.getCitas().get(citaModificar);
+            
+            Paciente paciente = calendario.getCits().get(fechaOriginal);
+            
+            System.out.println("INDICA SI DESEAS MODIFICAR O ELIMINAR LA CITA:");
+            System.out.println("[1] Modificar" + "\n" + "[2] Eliminar");
+            int me = sn.nextInt();
+            
+            if(me == 1){
+                
+                System.out.println("Introduce el nuevo día del mes:");
+                int nuevoDia = sn.nextInt();
+                System.out.println("Introduce el nuevo mes (1-12):");
+                int nuevoMes = sn.nextInt() - 1;
+                System.out.println("Introduce el nuevo año:");
+                int nuevoAno = sn.nextInt();
+                System.out.println("Introduce la nueva hora (0-23):");
+                int nuevaHora = sn.nextInt();
+            
+                GregorianCalendar nuevaFecha = new GregorianCalendar(nuevoAno, nuevoMes, nuevoDia, nuevaHora, 0);
+            
+
+                calendario.getCitas().remove(citaModificar);
+                calendario.getCits().remove(fechaOriginal);
+            
+                calendario.getCitas().add(nuevaFecha);
+                calendario.getCits().put(nuevaFecha, paciente);
+            
+                System.out.println("La cita ha sido modificada correctamente.");
+            
+            }else if(me == 2){
+                
+                calendario.getCitas().remove(citaModificar);
+                calendario.getCits().remove(fechaOriginal);
+            
+                System.out.println("La cita ha sido eliminada correctamente.");
+            }else{
+                System.out.println("Opción no válida.");
+            }
+
+
+            
+        }
+
+       
         
     }
     

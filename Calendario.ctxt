@@ -16,4 +16,6 @@ comment6.params=
 comment6.target=java.lang.String\ getFechaFormateada()
 comment7.params=
 comment7.target=java.util.ArrayList\ getCitas()
-numComments=8
+comment8.params=
+comment8.target=java.util.HashMap\ getCits()
+numComments=9
