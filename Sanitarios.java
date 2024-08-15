@@ -28,7 +28,7 @@ public class Sanitarios extends Empleado
     }
     
     public void crearCita(Paciente paciente){
-        calendario.nuevaCita(paciente, getUnidad());
+        calendario.nuevaCita(paciente, getUnidad(), horario);
     }
     
     public Calendario getCalendario(){

@@ -11,7 +11,7 @@ public class Hospital {
     
     private static GestionEmpleados gestionEmpleados;
     private static GestionEstudiantes gestionEstudiantes;
-    private static GestionMedicos gestionMedicos;
+    private static GestionCitas gestionCitas;
     private static GestionPacientes gestionPacientes;
     protected static ArrayList<Unidad> unidades;
     protected static ArrayList<Empleado> empleados;
@@ -39,7 +39,7 @@ public class Hospital {
             System.out.println("| [1]  Gestión Empleados             |");
             System.out.println("| [2]  Gestión Estudiantes           |");
             System.out.println("| [3]  Gestión Pacientes             |");
-            System.out.println("| [4]  Habitaciones                  |");
+            System.out.println("| [4]  Gestión de citas              |");
             System.out.println("| [5]  Administración                |");
             System.out.println("| [6]  Mantenimiento                 |");
             System.out.println("| [7]  Facturación                   |");
@@ -71,14 +71,17 @@ public class Hospital {
                     
                     break;
                 case 3:
-                    System.out.println("Has elegido 'Gestión Empleados'");
+                    System.out.println("Has elegido 'Gestión Pacientes'");
                     System.out.print('\u000C');
                     gestionPacientes = new GestionPacientes();
                     gestionPacientes.iniciarMenu();
 
                     break;
                 case 4:
-                    System.out.println("Has elegido 'Habitaciones'");
+                    System.out.println("Has elegido 'Gestión Citas'");
+                    System.out.print('\u000C');
+                    gestionCitas = new GestionCitas();
+                    gestionCitas.iniciarMenu();
                     
                     break;
                 case 5:

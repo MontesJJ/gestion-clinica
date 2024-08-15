@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
 
 /**
  * El paciente, además de los atributos heredados de persona, va a tener otros como ingresos, seguros, pagos...
@@ -52,6 +53,17 @@ public class Paciente extends Persona {
             for (int i = 0; i < expediente.size(); i++) {
                 Expediente exp = expediente.get(i);
                 System.out.println("Entrada " + (i + 1) + " | " + exp.getFechaFormateada() + " | " + "Unidad: " + expediente.get(i).getUnidad() + " | " + exp.getEntrada());
+            }
+        }
+    }
+    
+    public void imprimirCitas(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        for(Cita cita : citas){
+            if(cita.getUnidad().getNombreUnidad().equals("Consultas externas")){
+                System.out.println("[" + cita.getUnidad().getNombreUnidad() + ": Departamento de " + cita.getEspecialidad().getNombreEspecialidad() + "] " + sdf.format(cita.getFecha().getTime()));
+            }else{
+                System.out.println("[" + cita.getUnidad().getNombreUnidad() + "] " + sdf.format(cita.getFecha().getTime()));
             }
         }
     }

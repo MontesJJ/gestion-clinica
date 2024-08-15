@@ -25,15 +25,15 @@ public class GestionPacientes extends Hospital {
         
         while (true) { 
             
-            System.out.println("+------------------------------------+");
-            System.out.println("|         GESTIÓN DE MEDICOS         |");
-            System.out.println("+------------------------------------+");
-            System.out.println("| [1]  Dar de alta un paciente       |");
-            System.out.println("| [2]  Solicitar cita                |");
-            System.out.println("| [3]  Consultar expediente          |");
-            System.out.println("| [4]  Listar todos los pacientes    |");
-            System.out.println("| [5]  Volver                        |");
-            System.out.println("+------------------------------------+");
+            System.out.println("+--------------------------------------------+");
+            System.out.println("|            GESTIÓN DE PACIENTES            |");
+            System.out.println("+--------------------------------------------+");
+            System.out.println("| [1]  Dar de alta un paciente               |");
+            System.out.println("| [2]  Solicitar cita                        |");
+            System.out.println("| [3]  Consultar expediente                  |");
+            System.out.println("| [4]  Consultar las citas de un paciente    |");
+            System.out.println("| [5]  Volver                                |");
+            System.out.println("+--------------------------------------------+");
             System.out.print("Elige una opción (1-5): ");
 
             while (!scanner.hasNextInt()) {
@@ -64,14 +64,19 @@ public class GestionPacientes extends Hospital {
                     System.out.print('\u000C');
                     break;
                 case 3:
-                    System.out.println("Calendario de citas'");
+                    System.out.println('\u000C');
+                    consultarCitas();
                     
                     break;
                 case 4:
-                    System.out.println("Has elegido 'Asignar estudiante'");
+                    System.out.println('\u000C');
+                    consultarCitas();
                     
-                    break;
-             
+                    System.out.println("Pulsa intro para volver...");                    
+                    Scanner sc4 = new Scanner(System.in);
+                    String salir4 = sc4.nextLine();
+                    System.out.print('\u000C');
+                    break;             
                 case 5:
                     scanner.close();
                     System.out.print('\u000C');
@@ -144,12 +149,39 @@ public class GestionPacientes extends Hospital {
         if(unidad == 1){
             unidadSeleccionada = unidades.get(2);
             especialidad = null;
+            unidadSeleccionada.crearCita(paciente, unidadSeleccionada, 3);
+            ArrayList<GregorianCalendar> citas = unidadSeleccionada.getCalendario().getCitas();
+            GregorianCalendar fecha = citas.get(citas.size() - 1);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            
+            Cita cita = new Cita(fecha, unidadSeleccionada, especialidad);
+            paciente.agregarCita(cita);
+            
+            System.out.println("La cita se ha generado correctamente el " + sdf.format(fecha.getTime()) + " en la unidad de " + unidadSeleccionada.getNombreUnidad().toLowerCase());
         }else if(unidad == 2){
             unidadSeleccionada = unidades.get(3);
             especialidad = null;
+            unidadSeleccionada.crearCita(paciente, unidadSeleccionada, 4);
+            ArrayList<GregorianCalendar> citas = unidadSeleccionada.getCalendario().getCitas();
+            GregorianCalendar fecha = citas.get(citas.size() - 1);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            
+            Cita cita = new Cita(fecha, unidadSeleccionada, especialidad);
+            paciente.agregarCita(cita);
+            
+            System.out.println("La cita se ha generado correctamente el " + sdf.format(fecha.getTime()) + " en la unidad de " + unidadSeleccionada.getNombreUnidad().toLowerCase());
         }else if(unidad == 3){
             unidadSeleccionada = unidades.get(4);
             especialidad = null;
+            unidadSeleccionada.crearCita(paciente, unidadSeleccionada, 4);
+            ArrayList<GregorianCalendar> citas = unidadSeleccionada.getCalendario().getCitas();
+            GregorianCalendar fecha = citas.get(citas.size() - 1);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            
+            Cita cita = new Cita(fecha, unidadSeleccionada, especialidad);
+            paciente.agregarCita(cita);
+            
+            System.out.println("La cita se ha generado correctamente el " + sdf.format(fecha.getTime()) + " en " + unidadSeleccionada.getNombreUnidad().toLowerCase());
         }else{
             unidadSeleccionada = unidades.get(5);
             System.out.println("SELECCIONE LA ESPECIALIDAD:");
@@ -168,12 +200,25 @@ public class GestionPacientes extends Hospital {
             GregorianCalendar fecha = citas.get(citas.size() - 1);
             
             Cita cita = new Cita(fecha, unidadSeleccionada, especialidad);
+            paciente.agregarCita(cita);
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            System.out.println("La cita se ha generado correctamente el " + sdf.format(fecha.getTime()) + " en " + unidadSeleccionada.getNombreUnidad() + ", en el departamento de " + especialidad.getNombreEspecialidad());
-        }
+            System.out.println("La cita se ha generado correctamente el " + sdf.format(fecha.getTime())
+                + " en " + unidadSeleccionada.getNombreUnidad() 
+                + ", en el departamento de " + especialidad.getNombreEspecialidad()
+            );
+        }     
+      
         
+    }
+    
+    public void consultarCitas(){
         
+        System.out.println("SELECCIONE EL PACIENTE PARA EL QUE QUIERE CONSULTAR LAS CITAS:");
+        imprimirListadoPacientes();
+        Scanner p = new Scanner(System.in);
+        Paciente paciente = pacientes.get(p.nextInt() - 1);
         
-        System.out.println("La cita se ha generado correctamente el 15/08/2024 en " + unidadSeleccionada.getNombreUnidad() + ", en el departamento de " + especialidad.getNombreEspecialidad());
+        paciente.imprimirCitas();
+        
     }
 }

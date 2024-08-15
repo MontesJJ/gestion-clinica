@@ -1,5 +1,5 @@
 import java.util.Scanner; 
-
+import java.util.ArrayList; 
 /**
  * Esta parte de la aplicacion se muestan las diferentes acciones que se pueden llevar a cabo con los empleados.
  */
@@ -16,7 +16,7 @@ public class GestionEmpleados extends Hospital {
             System.out.println("|        GESTIÓN DE EMPLEADOS        |");
             System.out.println("+------------------------------------+");
             System.out.println("| [1]  Dar de alta un empleado       |");
-            System.out.println("| [2]  Dar de alta un médico         |");
+            System.out.println("| [2]  Consultar citas               |");
             System.out.println("| [3]  Calendario de citas           |");
             System.out.println("| [4]  Asignar estudiante            |");
             System.out.println("| [5]  Volver                        |");
@@ -42,9 +42,8 @@ public class GestionEmpleados extends Hospital {
                     break;
                 case 2:
                     System.out.println('\u000C');
-                    System.out.println("INDICA EL NOMBRE DEL MEDICO");
+                    imprimirCitas();
 
-                    
                     System.out.println("Pulsa intro para volver...");                    
                     Scanner sc2 = new Scanner(System.in);
                     String salir2 = sc2.nextLine();
@@ -163,5 +162,21 @@ public class GestionEmpleados extends Hospital {
         }
         return horario;
     }
+    
+    //Tengo que retocar esta clase para que formatee bien la información que imprime
+    public void imprimirCitas(){
+        ArrayList<Sanitarios> sanitarios = new ArrayList<>();
+        for(Empleado empleado : empleados){
+            if(empleado instanceof Sanitarios){
+                Sanitarios sanitario = (Sanitarios) empleado;
+                sanitarios.add(sanitario);
+            }
+        }
+        
+        for(Sanitarios sanitario : sanitarios){
+            sanitario.imprimirCitas();
+        }
+    }
 
+    
 }

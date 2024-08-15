@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=GestionCitas
+comment0.text=\r\n\ Esta\ parte\ de\ la\ aplicacion\ se\ muestan\ las\ diferentes\ acciones\ que\ se\ pueden\ llevar\ a\ cabo\ con\ las\ citas.\r\n
+comment1.params=
+comment1.target=void\ iniciarMenu()
+comment2.params=
+comment2.target=void\ consultarCitasMedicos()
+numComments=3

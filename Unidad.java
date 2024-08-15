@@ -16,13 +16,21 @@ public class Unidad
     public Unidad(String nombreUnidad) {
         this.nombreUnidad = nombreUnidad;
         this.empleadosAsignados = new ArrayList<>();
+        calendario = new Calendario();
     }
     
+    public void crearCita(Paciente paciente, Unidad unidad, int horario){
+        calendario.nuevaCita(paciente, unidad, horario);
+    }
     
     public void agregarEmpleado(Empleado empleado) {
         empleadosAsignados.add(empleado);
     }
-
+    
+    public Calendario getCalendario(){
+        return calendario;
+    }
+    
     public String getNombreUnidad() {
         return nombreUnidad;
     }

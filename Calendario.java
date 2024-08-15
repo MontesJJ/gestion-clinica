@@ -88,58 +88,81 @@ public class Calendario
     //https://docs.oracle.com/javase/8/docs/api/java/util/GregorianCalendar.html
     //https://docs.oracle.com/javase/8/docs/api/java/util/GregorianCalendar.html#setGregorianChange-java.util.Date-
     
-    public void nuevaCita(Paciente paciente, Unidad unidad){
-        //Primero, vamos a comprobar que la cita que se da de alta está dentro del rango de fechas permitido (HOY + 30 días) y que no hay ninguna otra cita para ese día/hora
+    public void nuevaCita(Paciente paciente, Unidad unidad, int horario) {
+        // Primero, vamos a comprobar que la cita que se da de alta está dentro del rango de fechas permitido (HOY + 30 días)
+        // y que no hay ninguna otra cita para ese día/hora
         boolean citaGuardada = false;
-        while(!citaGuardada){    
+        while (!citaGuardada) {
             Scanner sc = new Scanner(System.in);
-            int mes;
-            System.out.println("Seleccione el día del mes en el que acudirá a la cita");
+            System.out.println("Seleccione el día del mes en el que acudirá a la cita:");
             int dia = sc.nextInt();
-            System.out.println("Seleccione la hora para su cita. Si, por ejemplo, la hora es las 16:00, escriba 16");
-            int hora = sc.nextInt();            
-        
-            //Declaro un ArrayList que va a contener todas las claves del hashmap, y asi poder acceder a el a través de un índice
+            System.out.println("Seleccione el mes (1-12):");
+            int mes = sc.nextInt() - 1; 
+            System.out.println("Seleccione el año:");
+            int ano = sc.nextInt();
+    
+            // Determinar las horas disponibles según el turno del medico o la unidadd
+            int horaInicio, horaFin;
+            if(horario == 1){ // Turno de mañana
+                horaInicio = 8;
+                horaFin = 15;
+                System.out.println("El médico está disponible entre las 8:00 y las 15:00.");
+            }else if(horario == 2){ // Turno de tarde
+                horaInicio = 15;
+                horaFin = 22;
+                System.out.println("El médico está disponible entre las 15:00 y las 22:00.");
+            }else if(horario == 3) { // Turno de 24 horas
+                horaInicio = 0;
+                horaFin = 24;
+            }else{ // Turno extendido de 8:00 a 22:00
+                horaInicio = 8;
+                horaFin = 22;
+            }
+    
+            System.out.println("Seleccione la hora para su cita (las citas se dan en franjas de una hora, " +
+                    "por ejemplo, para las 16:00, escriba 16):");
+            int hora = sc.nextInt();
+    
+            if(hora < horaInicio || hora >= horaFin){
+                System.out.println("La hora seleccionada está fuera del rango disponible para este médico.");
+                continue;
+            }
+    
+            // Declaro un ArrayList que va a contener todas las claves del HashMap, y así poder acceder a él a través de un índice
             ArrayList<GregorianCalendar> keys = new ArrayList<>(cits.keySet());
             boolean hueco = true;
             int index = 0;
-            
-            while(hueco && index<cits.size()){
-                if(keys.get(index).get(Calendar.DAY_OF_MONTH) == dia && keys.get(index).get(Calendar.HOUR_OF_DAY) == hora){
+    
+            while (hueco && index < cits.size()) {
+                if (keys.get(index).get(Calendar.DAY_OF_MONTH) == dia &&
+                    keys.get(index).get(Calendar.MONTH) == mes &&
+                    keys.get(index).get(Calendar.YEAR) == ano &&
+                    keys.get(index).get(Calendar.HOUR_OF_DAY) == hora) {
                     hueco = false;
-                }else{
+                } else {
                     index++;
                 }
             }
-            
-            //Comprobamos si el dia seleccionado pertenece al mes en curso o al próximo mes
-            Calendar comprobarDia = new GregorianCalendar();
-            if(comprobarDia.get(Calendar.DATE) > dia){
-                mes = comprobarDia.get(Calendar.MONTH) + 1;
-            }else{
-                mes = comprobarDia.get(Calendar.MONTH);
-            }
-            
-            //si hay hueco para el dia seleccionado lo añadimos a la lista de citas
-            if(hueco){
-                citas.add(new GregorianCalendar(calendario.get(Calendar.YEAR), mes, dia, hora, 0, 0));
-                cits.put(new GregorianCalendar(calendario.get(Calendar.YEAR), mes, dia, hora, 0, 0), paciente);
-                //paciente.agregarCita(new GregorianCalendar(calendario.get(Calendar.YEAR), mes, dia, hora, 0 ,0), unidad); // OJOOOOOOOOO
+    
+            // Si hay hueco para el día seleccionado lo añadimos a la lista de citas
+            if (hueco) {
+                GregorianCalendar nuevaCita = new GregorianCalendar(ano, mes, dia, hora, 0, 0);
+                citas.add(nuevaCita);
+                cits.put(nuevaCita, paciente);
+                // paciente.agregarCita(nuevaCita, unidad);
                 citaGuardada = true;
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-                System.out.println("La cita se ha generado correctamente " + sdf.format(citas.get((citas.size()-1)).getTime()));
-            }else{
-                System.out.println("No hay hueco disponible para la fecha y hora selccionadas, ¿Desea seleccionar otra?[Y/N]");
-                Scanner dt = new Scanner(System.in);
-                String nueva = dt.next();
-                if(!nueva.equals("y") && !nueva.equals("Y")){
+                //System.out.println("La cita se ha generado correctamente: " + sdf.format(nuevaCita.getTime()));
+            } else {
+                System.out.println("No hay hueco disponible para la fecha y hora seleccionadas, ¿Desea seleccionar otra? [Y/N]");
+                String nueva = sc.next();
+                if (!nueva.equalsIgnoreCase("Y")) {
                     citaGuardada = true;
                 }
             }
         }
-
-        //https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html
     }
+
     
     public void imprimirCitas(){
         for(Map.Entry<GregorianCalendar, Paciente> citas : cits.entrySet()){

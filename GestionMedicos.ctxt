@@ -1,6 +1,0 @@
-#BlueJ class context
-comment0.target=GestionMedicos
-comment0.text=\r\n\ Esta\ parte\ de\ la\ aplicacion\ se\ centra\ en\ la\ gesti\u00F3n\ de\ los\ sanitarios.\ Las\ diferentes\ opciones\ se\ muestran\ a\ trav\u00E9s\ de\ un\ men\u00FA.\r\n
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-numComments=2
