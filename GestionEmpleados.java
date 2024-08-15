@@ -16,9 +16,9 @@ public class GestionEmpleados extends Hospital {
             System.out.println("|        GESTIÓN DE EMPLEADOS        |");
             System.out.println("+------------------------------------+");
             System.out.println("| [1]  Dar de alta un empleado       |");
-            System.out.println("| [2]  Consultar citas               |");
-            System.out.println("| [3]  Calendario de citas           |");
-            System.out.println("| [4]  Asignar estudiante            |");
+            System.out.println("| [2]  Consultar calendario          |");
+            System.out.println("| [3]  Modificar calendario          |");
+            System.out.println("| [4]  Buscar empleado               |");
             System.out.println("| [5]  Volver                        |");
             System.out.println("+------------------------------------+");
             System.out.print("Elige una opción (1-5): ");
@@ -50,11 +50,23 @@ public class GestionEmpleados extends Hospital {
                     System.out.print('\u000C');
                     break;
                 case 3:
-                    System.out.println("Calendario de citas'");
+                    System.out.println('\u000C');                    
+                    modificarCitas();
+                    
+                    System.out.println("Pulsa intro para volver...");                    
+                    Scanner sc3 = new Scanner(System.in);
+                    String salir3 = sc3.nextLine();
+                    System.out.print('\u000C');
+                    break;
 
                 case 4:
-                    System.out.println("Has elegido 'Asignar estudiante'");
-
+                    System.out.println('\u000C');                    
+                    buscarEmpleado();
+                    
+                    System.out.println("Pulsa intro para volver...");                    
+                    Scanner sc4 = new Scanner(System.in);
+                    String salir4 = sc4.nextLine();
+                    System.out.print('\u000C');
                     break;
              
                 case 5:
@@ -178,5 +190,80 @@ public class GestionEmpleados extends Hospital {
         }
     }
 
+    public void buscarEmpleado() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            try {
+                System.out.println("Seleccione el criterio de búsqueda:");
+                System.out.println("[1] Buscar por nombre");
+                System.out.println("[2] Buscar por DNI");
+                System.out.println("[3] Salir");
+                String opcionStr = scanner.nextLine().trim();
+                int opcion = Integer.parseInt(opcionStr);
+
+                if (opcion == 3) {
+                    System.out.println("Saliendo de la búsqueda...");
+                    break;
+                }
+
+                switch (opcion) {
+                    case 1:
+                        System.out.println("INTRODUCE EL NOMBRE DEL EMPLEADO:"); //Tenemos la posibilidd de buscar por concordacia ampia o concordancia exacta
+                        String nombreBusqueda = scanner.nextLine().trim().toLowerCase();
+
+                        ArrayList<Empleado> resultadosPorNombre = new ArrayList<>();
+
+                        for (Empleado empleado : empleados) {
+                            String nombreEmpleado = empleado.getNombre().toLowerCase();
+
+                            if (nombreEmpleado.contains(nombreBusqueda)) {
+                                resultadosPorNombre.add(empleado);
+                            }
+                        }
+
+                        if (resultadosPorNombre.isEmpty()) {
+                            System.out.println("No se encontraron empleados con el nombre proporcionado.");
+                        } else {
+                            System.out.println("Empleados encontrados:");
+                            for (Empleado empleado : resultadosPorNombre) {
+                                System.out.println(empleado.getNombre());
+                            }
+                        }
+                        break;
+
+                    case 2:
+                        System.out.println("INTRODUCE EL DNI DEL EMPLEADO:");//Solo concordacia exacta
+                        String dniBusqueda = scanner.nextLine().trim();
+
+                        Empleado empleadoEncontrado = null;
+
+                        for (Empleado empleado : empleados) {
+                            if (empleado.getDNI().equalsIgnoreCase(dniBusqueda)) {
+                                empleadoEncontrado = empleado;
+                                break;
+                            }
+                        }
+
+                        if (empleadoEncontrado == null) {
+                            System.out.println("No se encontró ningún empleado con el DNI proporcionado.");
+                        } else {
+                            System.out.println("Empleado encontrado:");
+                            System.out.println(empleadoEncontrado.getNombre());
+                        }
+                        break;
+
+                    default:
+                        System.out.println("Opción no válida. Por favor, seleccione 1, 2 o 3.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, introduce un número válido.");
+            }
+        }
+    }
+    
+    public void modificarCitas(){
+        
+    }
     
 }

@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Esta parte de la aplicacion se centra en la gestión de los sanitarios. Las diferentes opciones se muestran a través de un menú.
  */
-
+   
 public class GestionPacientes extends Hospital {   
     
     public void iniciarMenu(){
@@ -29,14 +29,17 @@ public class GestionPacientes extends Hospital {
             System.out.println("| [3]  Consultar las citas de un paciente    |");
             System.out.println("| [4]  Actualizar expediente                 |");
             System.out.println("| [5]  Ver expediente                        |");  
-            System.out.println("| [6]  Volver                                |");
+            System.out.println("| [6]  Gestionar ingreso                     |");
+            System.out.println("| [7]  Dar de baja un ingreso                |");
+            System.out.println("| [8]  Buscar Paciente                       |");
+            System.out.println("| [9]  Volver                                |");
             System.out.println("+--------------------------------------------+");
-            System.out.print("Elige una opción (1-6): ");
+            System.out.print("Elige una opción (1-8): ");
     
             while (!scanner.hasNextInt()) {
                 System.out.println("Por favor, introduce un número válido.");
                 scanner.next(); 
-                System.out.print("Elige una opción (1-6): ");
+                System.out.print("Elige una opción (1-8): ");
             }
             option = scanner.nextInt();
     
@@ -84,16 +87,42 @@ public class GestionPacientes extends Hospital {
                     System.out.print('\u000C');
                     break;
                 case 6:
+                    System.out.println('\u000C');
+                    darAltaIngreso();
+                    
+                    System.out.println("Pulsa intro para volver...");                    
+                    Scanner sc6 = new Scanner(System.in);
+                    String salir6 = sc6.nextLine();
+                    System.out.print('\u000C');
+                    break;
+                case 7:
+                    System.out.println('\u000C');
+                    darBajaIngreso();
+                    
+                    System.out.println("Pulsa intro para volver...");                    
+                    Scanner sc7 = new Scanner(System.in);
+                    String salir7 = sc7.nextLine();
+                    System.out.print('\u000C');
+                    break;
+                case 8:
+                    System.out.println('\u000C');
+                    buscarPaciente();
+                    
+                    System.out.println("Pulsa intro para volver...");                    
+                    Scanner sc8 = new Scanner(System.in);
+                    String salir8 = sc8.nextLine();
+                    System.out.print('\u000C');
+                    break;
+                case 9:
                     scanner.close();
                     System.out.print('\u000C');
                     return;
                     
                 default:
-                    System.out.println("Opción no válida. Por favor, elige entre 1 y 6.");
+                    System.out.println("Opción no válida. Por favor, elige entre 1 y 8.");
             }
         }
     }
-
     
     public void altaPaciente(){
         Scanner scanner = new Scanner(System.in);
@@ -256,5 +285,137 @@ public class GestionPacientes extends Hospital {
         Paciente paciente = pacientes.get(p.nextInt() - 1);        
         paciente.mostrarExpediente();
         
+    }
+    
+    public void darAltaIngreso() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Seleccione el paciente para ingresar:");
+        for (int i = 0; i < pacientes.size(); i++) {
+            System.out.println("[" + (i + 1) + "] " + pacientes.get(i).getNombre());
+        }
+        int pacienteSeleccionado = scanner.nextInt() - 1;
+        Paciente paciente = pacientes.get(pacienteSeleccionado);
+
+        Habitacion habitacionLibre = null;
+        for (Habitacion habitacion : habitaciones) {
+            if (habitacion.estaLibre()) {
+                habitacionLibre = habitacion;
+                break;
+            }
+        }
+
+        if (habitacionLibre != null) {
+            Ingreso ingreso = new Ingreso(paciente, habitacionLibre);
+            ingreso.setAlta(); 
+            habitacionLibre.getIngresos().add(ingreso);
+
+            System.out.println("El paciente " + paciente.getNombre() + " ha sido ingresado en la habitación " +
+                    habitacionLibre.getNumeroHabitacion());
+        } else {
+            System.out.println("No hay habitaciones disponibles.");
+        }
+    }
+
+    public void darBajaIngreso() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Seleccione el paciente para dar de baja:");
+        for (int i = 0; i < pacientes.size(); i++) {
+            System.out.println("[" + (i + 1) + "] " + pacientes.get(i).getNombre());
+        }
+        int pacienteSeleccionado = scanner.nextInt() - 1;
+        Paciente paciente = pacientes.get(pacienteSeleccionado);
+
+        Ingreso ingresoActivo = null;
+        for (Habitacion habitacion : habitaciones) {
+            for (Ingreso ingreso : habitacion.getIngresos()) {
+                if (ingreso.getPaciente().equals(paciente) && ingreso.getBaja() == null) {
+                    ingresoActivo = ingreso;
+                    break;
+                }
+            }
+            if (ingresoActivo != null) {
+                break;
+            }
+        }
+
+        if (ingresoActivo != null) {
+            ingresoActivo.setBaja();
+            System.out.println("El paciente " + paciente.getNombre() + " ha sido dado de baja del ingreso.");
+        } else {
+            System.out.println("No se encontró un ingreso activo para el paciente seleccionado.");
+        }
+    }
+    
+    public void buscarPaciente() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            try {
+                System.out.println("Seleccione el criterio de búsqueda:");
+                System.out.println("[1] Buscar por nombre");
+                System.out.println("[2] Buscar por DNI");
+                System.out.println("[3] Salir");
+                String opcionStr = scanner.nextLine().trim();
+                int opcion = Integer.parseInt(opcionStr);
+
+                if (opcion == 3) {
+                    System.out.println("Saliendo de la búsqueda...");
+                    break;
+                }
+
+                switch (opcion) {
+                    case 1:
+                        System.out.println("INTRODUCE EL NOMBRE DEL PACIENTE:"); //Tenemos la posibilidd de buscar por concordacia ampia o concordancia exacta
+                        String nombreBusqueda = scanner.nextLine().trim().toLowerCase();
+
+                        ArrayList<Paciente> resultadosPorNombre = new ArrayList<>();
+
+                        for (Paciente paciente : pacientes) {
+                            String nombrePaciente = paciente.getNombre().toLowerCase();
+
+                            if (nombrePaciente.contains(nombreBusqueda)) {
+                                resultadosPorNombre.add(paciente);
+                            }
+                        }
+
+                        if (resultadosPorNombre.isEmpty()) {
+                            System.out.println("No se encontraron pacientes con el nombre proporcionado.");
+                        } else {
+                            System.out.println("Pacientes encontrados:");
+                            for (Paciente paciente : resultadosPorNombre) {
+                                System.out.println(paciente.getNombre());
+                            }
+                        }
+                        break;
+
+                    case 2:
+                        System.out.println("INTRODUCE EL DNI DEL PACIENTE:");//Solo concordacia exacta
+                        String dniBusqueda = scanner.nextLine().trim();
+
+                        Paciente pacienteEncontrado = null;
+
+                        for (Paciente paciente : pacientes) {
+                            if (paciente.getDNI().equalsIgnoreCase(dniBusqueda)) {
+                                pacienteEncontrado = paciente;
+                                break;
+                            }
+                        }
+
+                        if (pacienteEncontrado == null) {
+                            System.out.println("No se encontró ningún paciente con el DNI proporcionado.");
+                        } else {
+                            System.out.println("Paciente encontrado:");
+                            System.out.println(pacienteEncontrado.getNombre());
+                        }
+                        break;
+
+                    default:
+                        System.out.println("Opción no válida. Por favor, seleccione 1, 2 o 3.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, introduce un número válido.");
+            }
+        }
     }
 }

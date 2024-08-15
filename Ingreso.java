@@ -14,8 +14,8 @@ public class Ingreso
 {
     private Paciente paciente;
     private Habitacion habitacion;
-    private Calendar fechaAlta;
-    private Calendar fechaBaja;
+    private GregorianCalendar fechaAlta;
+    private GregorianCalendar fechaBaja;
     
     /**
      * Constructor
@@ -42,4 +42,7 @@ public class Ingreso
         return fechaBaja;
     }
     
+    public Paciente getPaciente() {
+        return paciente;
+    }
 }

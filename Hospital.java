@@ -18,6 +18,7 @@ public class Hospital {
     protected static ArrayList<Especialidad> especialidades;
     protected static ArrayList<Estudiante> estudiantes;
     protected static ArrayList<Paciente> pacientes;
+    protected static ArrayList<Habitacion> habitaciones;
     protected static HashMap<Integer, String> horarios;
     
     public static void main(String[] args) {
@@ -26,6 +27,7 @@ public class Hospital {
         especialidades = new ArrayList<>();
         estudiantes = new ArrayList<>();
         pacientes = new ArrayList<>();
+        habitaciones = new ArrayList<>();
         horarios = new HashMap<>();
         iniciar();
         Scanner scanner = new Scanner(System.in); 
@@ -427,7 +429,12 @@ public class Hospital {
             pacientes.add(scortes);
             Paciente hmartin = new Paciente("Hugo Martín Serrano", "656789013", "hmartin@correo.com", "56789012O", false);
 
-    
+            //Habitaciones
+            for(int i=1; i<=90; i++){
+                Habitacion habitacion = new Habitacion(i);
+                habitaciones.add(habitacion);
+            }            
+            
     }
     
     public static void imprimirUnidades(){ //Para imprimir el listado de unidades

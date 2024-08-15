@@ -10,4 +10,6 @@ comment3.target=int\ seleccionarHorario(int)
 comment3.text=\r\n\ Voy\ a\ usar\ esta\ funci\u00F3n\ para\ asignar\ el\ horario\ al\ empleado.\ A\ modo\ general,\ hay\ 2\ tipos\ de\ unidades;\ las\ que\ tienen\ servicios\ de\ guardia\ y\ las\ que\ no.\r\n\ Si\ el\ empleado\ no\ est\u00E1\ en\ servicio\ de\ guardia,\ podra\ tener\ trabajo\ de\ ma\u00F1ana\ o\ tardes.\ En\ las\ unidades\ en\ las\ que\ hay\ servicio\ de\ guardia,\ tenemos\ ma\u00F1ana,\ tarde\ y\ noche.\r\n
 comment4.params=
 comment4.target=void\ imprimirCitas()
-numComments=5
+comment5.params=
+comment5.target=void\ buscarEmpleado()
+numComments=6
