@@ -13,7 +13,7 @@ import java.util.Map;
  */
 
 public class GestionPacientes extends Hospital {
-            
+    
     public GestionPacientes() {
     }    
     

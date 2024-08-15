@@ -165,8 +165,9 @@ public class Calendario
 
     
     public void imprimirCitas(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         for(Map.Entry<GregorianCalendar, Paciente> citas : cits.entrySet()){
-            System.out.println(citas.getValue().getNombre() + " " + citas.getKey().getTime());
+            System.out.println(citas.getValue().getNombre() + " " + sdf.format(citas.getKey().getTime()));
         }
     }
     

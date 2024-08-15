@@ -100,7 +100,7 @@ public class Hospital {
                     System.out.print('\u000C');
                     System.out.println("Gracias. ¡Hasta la próxima!");
                     scanner.close(); 
-                    System.out.print('\u0017'); //BUSCAR UNICODE PARA SIMULAR CTRL+W
+                    System.out.print('\u0017'); 
                     return;
                 default:
                     System.out.println("Opción no válida. Por favor, elige entre 1 y 8.");
