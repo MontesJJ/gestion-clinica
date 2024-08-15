@@ -12,11 +12,7 @@ import java.util.Map;
  * Esta parte de la aplicacion se centra en la gestión de los sanitarios. Las diferentes opciones se muestran a través de un menú.
  */
 
-public class GestionPacientes extends Hospital {
-    
-    public GestionPacientes() {
-    }    
-    
+public class GestionPacientes extends Hospital {   
     
     public void iniciarMenu(){
         
@@ -30,19 +26,20 @@ public class GestionPacientes extends Hospital {
             System.out.println("+--------------------------------------------+");
             System.out.println("| [1]  Dar de alta un paciente               |");
             System.out.println("| [2]  Solicitar cita                        |");
-            System.out.println("| [3]  Consultar expediente                  |");
-            System.out.println("| [4]  Consultar las citas de un paciente    |");
-            System.out.println("| [5]  Volver                                |");
+            System.out.println("| [3]  Consultar las citas de un paciente    |");
+            System.out.println("| [4]  Actualizar expediente                 |");
+            System.out.println("| [5]  Ver expediente                        |");  
+            System.out.println("| [6]  Volver                                |");
             System.out.println("+--------------------------------------------+");
-            System.out.print("Elige una opción (1-5): ");
-
+            System.out.print("Elige una opción (1-6): ");
+    
             while (!scanner.hasNextInt()) {
                 System.out.println("Por favor, introduce un número válido.");
                 scanner.next(); 
-                System.out.print("Elige una opción (1-5): ");
+                System.out.print("Elige una opción (1-6): ");
             }
             option = scanner.nextInt();
-
+    
             switch (option) {
                 case 1:
                     System.out.println('\u000C');
@@ -56,7 +53,7 @@ public class GestionPacientes extends Hospital {
                 case 2:
                     System.out.println('\u000C');
                     crearCita();
-
+    
                     
                     System.out.println("Pulsa intro para volver...");                    
                     Scanner sc2 = new Scanner(System.in);
@@ -70,23 +67,33 @@ public class GestionPacientes extends Hospital {
                     break;
                 case 4:
                     System.out.println('\u000C');
-                    consultarCitas();
+                    actualizarExpediente();
                     
                     System.out.println("Pulsa intro para volver...");                    
                     Scanner sc4 = new Scanner(System.in);
                     String salir4 = sc4.nextLine();
                     System.out.print('\u000C');
-                    break;             
+                    break;
                 case 5:
+                    System.out.println('\u000C');
+                    verExpediente();
+                    
+                    System.out.println("Pulsa intro para volver...");                    
+                    Scanner sc5 = new Scanner(System.in);
+                    String salir5 = sc5.nextLine();
+                    System.out.print('\u000C');
+                    break;
+                case 6:
                     scanner.close();
                     System.out.print('\u000C');
                     return;
                     
                 default:
-                    System.out.println("Opción no válida. Por favor, elige entre 1 y 5.");
+                    System.out.println("Opción no válida. Por favor, elige entre 1 y 6.");
             }
         }
     }
+
     
     public void altaPaciente(){
         Scanner scanner = new Scanner(System.in);
@@ -219,6 +226,35 @@ public class GestionPacientes extends Hospital {
         Paciente paciente = pacientes.get(p.nextInt() - 1);
         
         paciente.imprimirCitas();
+        
+    }
+    
+    public void actualizarExpediente(){
+        
+        System.out.println("SELECCIONE EL PACIENTE PARA EL QUE QUIERE ACTUALIZAR EL EXPEDIENTE:");
+        imprimirListadoPacientes();
+        Scanner p = new Scanner(System.in);
+        Paciente paciente = pacientes.get(p.nextInt() - 1);
+        
+        System.out.println("SELECCIONE LA UNIDAD DESDE LA QUE SE VA A GENERAR LA ENTRADA:");
+        imprimirUnidades();
+        Scanner ud = new Scanner(System.in);
+        Unidad unidad = unidades.get(ud.nextInt()); 
+        
+        System.out.println("ESCRIBA LA ENTRADA PARA EL EXPEDIENTE:");
+        Scanner tx = new Scanner(System.in);
+        String textoEntrada = tx.nextLine();
+        
+        paciente.agregarEntradaExpediente(textoEntrada, unidad);
+    }
+    
+    public void verExpediente(){
+  
+        System.out.println("SELECCIONE EL PACIENTE PARA EL QUE QUIERE ACTUALIZAR EL EXPEDIENTE:");
+        imprimirListadoPacientes();
+        Scanner p = new Scanner(System.in);
+        Paciente paciente = pacientes.get(p.nextInt() - 1);        
+        paciente.mostrarExpediente();
         
     }
 }
