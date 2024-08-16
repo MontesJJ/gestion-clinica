@@ -14,6 +14,7 @@ public class Hospital {
     private static GestionCitas gestionCitas;
     private static GestionPacientes gestionPacientes;
     private static Facturacion facturacion;
+    private static Mantenimiento gestionMantenimiento;
     protected static ArrayList<Unidad> unidades;
     protected static ArrayList<Empleado> empleados;
     protected static ArrayList<Especialidad> especialidades;
@@ -96,7 +97,9 @@ public class Hospital {
                     break;
                 case 6:
                     System.out.println("Has elegido 'Mantenimiento'");
-                    
+                    System.out.print('\u000C');
+                    gestionMantenimiento = new Mantenimiento();
+                    gestionMantenimiento.iniciarMenu();
                     break;
                 case 7:
                     System.out.println("Has elegido 'Administración'");
@@ -138,6 +141,8 @@ public class Hospital {
         unidades.add(formacion);
         Unidad aparcamiento = new Unidad("Aparcamiento");
         unidades.add(aparcamiento);
+        Unidad mantenimiento = new Unidad("Mantenimiento");
+        unidades.add(mantenimiento);
 
         
         //Alta especialidades
@@ -187,6 +192,18 @@ public class Hospital {
             empleados.add(mgarcia);
             Empleado jduran = new Nosanitarios(hospitalizacion, "Javier Durán López", "622233445", "45678901N", 6);
             empleados.add(jduran);
+            
+            //Mantenimiento
+            Empleado strino = new Nosanitarios(mantenimiento, "Sergio Trino García", "68395516", "19901234F", 1);
+            empleados.add(strino);
+            Empleado rdiaz = new Nosanitarios(mantenimiento, "Roberto Diaz Martínez", "686997433", "19012345G", 3);
+            empleados.add(rdiaz);
+            Empleado scortes = new Nosanitarios(mantenimiento, "Sarai Cortés Sánchez", "632198733", "30123456K", 4);
+            empleados.add(scortes);
+            Empleado tgarcia = new Nosanitarios(mantenimiento, "Teresa García Pérez", "622345678", "14567891M", 5);
+            empleados.add(tgarcia);
+            Empleado pduran = new Nosanitarios(mantenimiento, "Paco Durán López", "622233441", "15678901V", 6);
+            empleados.add(pduran);
 
             // Pruebas médicas
             Empleado jlopez = new Nosanitarios(pruebasMedicas, "Julia López Navarro", "644956215", "01234567J", 1);
@@ -427,8 +444,8 @@ public class Hospital {
             pacientes.add(vleon);
             Paciente mplancha = new Paciente("Miguel Plancha Navas", "634567891", "mgarcia@correo.com", "34567890M", false);
             pacientes.add(mplancha);
-            Paciente scortes = new Paciente("Sofía Cortés Ramírez", "645678902", "scortes@correo.com", "45678901N", false);
-            pacientes.add(scortes);
+            Paciente stortes = new Paciente("Sofía Tortés Ramírez", "645678902", "scortes@correo.com", "45678901N", false);
+            pacientes.add(stortes);
             Paciente hmartin = new Paciente("Hugo Martín Serrano", "656789013", "hmartin@correo.com", "56789012O", false);
 
             //Habitaciones

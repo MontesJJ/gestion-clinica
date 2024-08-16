@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Mantenimiento
+comment1.params=
+comment1.target=Mantenimiento()
+comment2.params=
+comment2.target=void\ iniciarMenu()
+comment3.params=
+comment3.target=void\ darAltaRecurso()
+comment4.params=
+comment4.target=void\ darBajaRecurso()
+comment5.params=
+comment5.target=void\ asignarTecnico()
+numComments=6

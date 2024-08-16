@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Recurso
+comment1.params=nombre
+comment1.target=Recurso(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getNombre()
+comment3.params=tecnico
+comment3.target=void\ setTecnico(Empleado)
+comment4.params=
+comment4.target=Empleado\ getTecnico()
+numComments=5
