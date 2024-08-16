@@ -22,7 +22,6 @@ public class Estudiante extends Persona
         this.horario = horario;
         email = generarEmail(nombre) + "@alumnos.hospital.es";
     }
-    
     //Esta función la voy a usar para generar el correo del nuevo empleado, cogiendo la primera letra de su nombre y su primer apellido.
     public String generarEmail(String nombre){
         String alias="";

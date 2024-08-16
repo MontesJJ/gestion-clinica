@@ -10,4 +10,6 @@ comment3.params=
 comment3.target=java.util.ArrayList\ getIngresos()
 comment4.params=
 comment4.target=int\ getNumeroHabitacion()
-numComments=5
+comment5.params=ingreso
+comment5.target=void\ agregarIngreso(Ingreso)
+numComments=6

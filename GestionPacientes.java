@@ -310,7 +310,9 @@ public class GestionPacientes extends Hospital {
             habitacionLibre.getIngresos().add(ingreso);
 
             System.out.println("El paciente " + paciente.getNombre() + " ha sido ingresado en la habitación " +
-                    habitacionLibre.getNumeroHabitacion());
+            habitacionLibre.getNumeroHabitacion());
+            paciente.agregarIngreso(ingreso);
+            
         } else {
             System.out.println("No hay habitaciones disponibles.");
         }

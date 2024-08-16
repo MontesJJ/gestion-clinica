@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Facturacion
+comment0.text=\r\n\ Esta\ parte\ de\ la\ aplicacion\ se\ van\ a\ generar\ las\ facturas\ para\ los\ pacientes.\r\n
+comment1.params=
+comment1.target=void\ iniciarMenu()
+comment2.params=
+comment2.target=void\ imprimirListadoPacientes()
+comment3.params=anio\ mes\ paciente
+comment3.target=void\ cobroPacientes(int,\ int,\ Paciente)
+numComments=4

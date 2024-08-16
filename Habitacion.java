@@ -36,5 +36,9 @@ public class Habitacion {
     public int getNumeroHabitacion() {
         return numeroHabitacion;
     }
+    
+    public void agregarIngreso(Ingreso ingreso){
+        ingresos.add(ingreso);
+    }
 }
 

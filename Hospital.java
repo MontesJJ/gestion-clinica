@@ -13,6 +13,7 @@ public class Hospital {
     private static GestionEstudiantes gestionEstudiantes;
     private static GestionCitas gestionCitas;
     private static GestionPacientes gestionPacientes;
+    private static Facturacion facturacion;
     protected static ArrayList<Unidad> unidades;
     protected static ArrayList<Empleado> empleados;
     protected static ArrayList<Especialidad> especialidades;
@@ -42,9 +43,9 @@ public class Hospital {
             System.out.println("| [2]  Gestión Estudiantes           |");
             System.out.println("| [3]  Gestión Pacientes             |");
             System.out.println("| [4]  Gestión de citas              |");
-            System.out.println("| [5]  Administración                |");
+            System.out.println("| [5]  Facturación                   |");
             System.out.println("| [6]  Mantenimiento                 |");
-            System.out.println("| [7]  Facturación                   |");
+            System.out.println("| [7]  Administración                |");
             System.out.println("| [8]  Salir                         |");
             System.out.println("+------------------------------------+");
             System.out.print("Elige una opción (1-8): ");
@@ -87,7 +88,10 @@ public class Hospital {
                     
                     break;
                 case 5:
-                    System.out.println("Has elegido 'Administración'");
+                    System.out.println("Has elegido 'Facturación'");
+                    System.out.print('\u000C');
+                    facturacion = new Facturacion();
+                    facturacion.iniciarMenu();
                     
                     break;
                 case 6:
@@ -95,7 +99,7 @@ public class Hospital {
                     
                     break;
                 case 7:
-                    System.out.println("Has elegido 'Facturación'");
+                    System.out.println("Has elegido 'Administración'");
                     
                     break;
                 case 8:
@@ -396,10 +400,8 @@ public class Hospital {
             horarios.put(5, "De sábado a domingo, desde las 00:00 hasta las 12:00");//Horario 5
             horarios.put(6, "De sábado a domingo, desde las 12:00 hasta las 00:00");//Horario 6
             
-            //Pacientes
-            Paciente fmoran = new Paciente("Francisco Morán Santos", "654784410", "fmoran@correo.com", "86114455I", true);
-            
-            Paciente jgomez = new Paciente("Juan Gómez Pérez", "612345678", "jgomez@correo.com", "12345678A", true);
+            //Pacientes           
+            Paciente jgomez = new Paciente("Juan Gómez Pérez", "612345678", "jgomez@correo.com", "12345678A", false);
             pacientes.add(jgomez);
             Paciente dlara = new Paciente("Diana Lara Fernández", "623456789", "mlara@correo.com", "23456789B", true);
             pacientes.add(dlara);
@@ -433,8 +435,13 @@ public class Hospital {
             for(int i=1; i<=90; i++){
                 Habitacion habitacion = new Habitacion(i);
                 habitaciones.add(habitacion);
-            }            
+            }
             
+            //Ingresos
+            Ingreso ingreso1 = new Ingreso(jgomez, habitaciones.get(0));
+            ingreso1.setAltaFake();
+            jgomez.agregarIngreso(ingreso1);
+            habitaciones.get(0).agregarIngreso(ingreso1);
     }
     
     public static void imprimirUnidades(){ //Para imprimir el listado de unidades

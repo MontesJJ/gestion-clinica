@@ -34,6 +34,11 @@ public class Ingreso
         fechaBaja = new GregorianCalendar();
     }
     
+    //Esta función solo la voy a usar para trucar los datos de prueba y que cuando se emitan las facturas ya haya ingresos que se puedan facturar
+    public void setAltaFake(){
+        fechaAlta = new GregorianCalendar(2024, 8, 13, 8, 0, 0);
+    }
+    
     public Calendar getAlta(){
         return fechaAlta;
     }

@@ -13,6 +13,7 @@ public class Paciente extends Persona {
     private Calendario calendario;
     private ArrayList<Expediente> expediente;
     private ArrayList<Cita> citas;
+    private ArrayList<Ingreso> ingresos;
     private boolean seguroPrivado;
 
     /**
@@ -23,6 +24,7 @@ public class Paciente extends Persona {
         this.email = email;
         this.seguroPrivado = seguro;
         this.citas = new ArrayList<>();
+        this.ingresos = new ArrayList<>();
         this.expediente = new ArrayList<>(); 
     }
     
@@ -66,5 +68,21 @@ public class Paciente extends Persona {
                 System.out.println("[" + cita.getUnidad().getNombreUnidad() + "] " + sdf.format(cita.getFecha().getTime()));
             }
         }
+    }
+    
+    public void agregarIngreso(Ingreso ingreso){
+        ingresos.add(ingreso);
+    }
+    
+    public ArrayList getCitas(){
+        return citas;
+    }
+    
+    public ArrayList getIngresos(){
+        return ingresos;
+    }
+    
+    public boolean getSeguro(){
+        return seguroPrivado;
     }
 }
