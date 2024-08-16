@@ -46,8 +46,7 @@ public class Hospital {
             System.out.println("| [4]  Gestión de citas              |");
             System.out.println("| [5]  Facturación                   |");
             System.out.println("| [6]  Mantenimiento                 |");
-            System.out.println("| [7]  Administración                |");
-            System.out.println("| [8]  Salir                         |");
+            System.out.println("| [7]  Salir                         |");
             System.out.println("+------------------------------------+");
             System.out.print("Elige una opción (1-8): ");
 
@@ -67,6 +66,7 @@ public class Hospital {
                     gestionEmpleados.iniciarMenu();                    
                     
                     break;
+                    
                 case 2:
                     System.out.println("Has elegido 'Gestión Estudiantes'");
                     System.out.print('\u000C');
@@ -74,6 +74,7 @@ public class Hospital {
                     gestionEstudiantes.iniciarMenu();
                     
                     break;
+                    
                 case 3:
                     System.out.println("Has elegido 'Gestión Pacientes'");
                     System.out.print('\u000C');
@@ -81,6 +82,7 @@ public class Hospital {
                     gestionPacientes.iniciarMenu();
 
                     break;
+                    
                 case 4:
                     System.out.println("Has elegido 'Gestión Citas'");
                     System.out.print('\u000C');
@@ -88,6 +90,7 @@ public class Hospital {
                     gestionCitas.iniciarMenu();
                     
                     break;
+                    
                 case 5:
                     System.out.println("Has elegido 'Facturación'");
                     System.out.print('\u000C');
@@ -95,24 +98,22 @@ public class Hospital {
                     facturacion.iniciarMenu();
                     
                     break;
+                    
                 case 6:
                     System.out.println("Has elegido 'Mantenimiento'");
                     System.out.print('\u000C');
                     gestionMantenimiento = new Mantenimiento();
                     gestionMantenimiento.iniciarMenu();
                     break;
+
                 case 7:
-                    System.out.println("Has elegido 'Administración'");
-                    
-                    break;
-                case 8:
                     System.out.print('\u000C');
                     System.out.println("Gracias. ¡Hasta la próxima!");
                     scanner.close(); 
                     System.out.print('\u0017'); 
                     return;
                 default:
-                    System.out.println("Opción no válida. Por favor, elige entre 1 y 8.");
+                    System.out.println("Opción no válida. Por favor, elige entre 1 y 7.");
             }
         }
     }
